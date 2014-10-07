@@ -1,0 +1,12 @@
+!SESSION 2014-10-07 20:18:50.028 -----------------------------------------------
+eclipse.buildId=3.6.0.201407100658
+java.version=1.7.0_67
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=sv_SE
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.aptana.editor.common 4 0 2014-10-07 20:41:56.310
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  (Errno::EINVAL) =::
+!STACK 0
+org.jruby.exceptions.RaiseException: (Errno::EINVAL) =::
+	at org.jruby.RubyHash.replace(org/jruby/RubyHash.java:1623)
