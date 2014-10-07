@@ -1,7 +1,6 @@
 <?php
 
-class Repository {
-		
+class Repository {	
 	private $dbConnection;
 	private $dbTable;
 	private static $DB_USERNAME = "root";
