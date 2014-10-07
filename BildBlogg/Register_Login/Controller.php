@@ -1,16 +1,16 @@
 <?php
 
-require_once("LoginModel.php");
+require_once("Model.php");
 require_once("LoginView.php");
 require_once("RegisterView.php");
 
-class LoginController {
+class Controller {
 	private $view;
 	private $registerView;
 	private $model;
 
 	public function __construct() {
-		$this->model = new LoginModel();
+		$this->model = new Model();
 		$this->view = new LoginView($this->model);
 		$this->registerView = new RegisterView($this->model);
 	}

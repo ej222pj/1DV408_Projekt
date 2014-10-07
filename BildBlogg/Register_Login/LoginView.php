@@ -7,7 +7,7 @@ class LoginView {
 	private $Uvalue = "";
 	private $Pvalue = "";
 
-	public function __construct(LoginModel $model) {
+	public function __construct(Model $model) {
 		$this->model = $model;
 	}
 

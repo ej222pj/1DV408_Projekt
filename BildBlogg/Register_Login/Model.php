@@ -1,7 +1,7 @@
 <?php
 require_once ('Repository.php');
 
-class LoginModel {
+class Model {
 
 	private $Repository;
 	

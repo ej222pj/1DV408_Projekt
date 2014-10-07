@@ -1,8 +1,7 @@
 <?php
 
 class Repository {
-	//protected $dbUsername = \Settings::$DBUSERNAME;
-	
+		
 	private $dbConnection;
 	private $dbTable;
 	private static $DB_USERNAME = "root";

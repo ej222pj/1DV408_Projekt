@@ -8,7 +8,7 @@ class RegisterView {
 	private $RegPvalue = "";
 	private $RepRegPvalue = "";
 	
-	public function __construct(LoginModel $model) {
+	public function __construct(Model $model) {
 		$this->model = $model;
 	}
 	

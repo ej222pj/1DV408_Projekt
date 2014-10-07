@@ -4,10 +4,10 @@
 session_start();
 
 require_once("HTMLView.php");
-require_once("LoginController.php");
+require_once("Controller.php");
 
 //Skapar ny controller
-$lc = new LoginController();
+$lc = new Controller();
 $HTMLBody = $lc->doLogin();
 
 //Skapar ny HTMLView
