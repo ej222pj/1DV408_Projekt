@@ -13,3 +13,36 @@ org.jruby.exceptions.RaiseException: (Errno::EINVAL) =::
 
 !ENTRY org.eclipse.core.jobs 2 2 2014-10-07 21:46:56.414
 !MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.aptana.usage.internal.DefaultAnalyticsEventHandler$1
+!SESSION 2014-10-08 08:19:28.652 -----------------------------------------------
+eclipse.buildId=3.6.0.201407100658
+java.version=1.7.0_67
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=sv_SE
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.aptana.editor.common 4 0 2014-10-08 08:25:16.911
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  (Errno::EINVAL) =::
+!STACK 0
+org.jruby.exceptions.RaiseException: (Errno::EINVAL) =::
+	at org.jruby.RubyHash.replace(org/jruby/RubyHash.java:1623)
+
+!ENTRY com.aptana.editor.common 4 0 2014-10-08 08:49:06.342
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  The input of the content provider should be the IParseRootNode, not the editor!
+
+!ENTRY com.aptana.editor.common 4 0 2014-10-08 08:49:06.356
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  The input of the content provider should be the IParseRootNode, not the editor!
+
+!ENTRY com.aptana.editor.common 4 0 2014-10-08 08:49:06.366
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  The input of the content provider should be the IParseRootNode, not the editor!
+
+!ENTRY com.aptana.editor.common 4 0 2014-10-08 08:49:06.373
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  The input of the content provider should be the IParseRootNode, not the editor!
+
+!ENTRY org.eclipse.core.jobs 2 2 2014-10-08 09:33:05.443
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.aptana.usage.internal.DefaultAnalyticsEventHandler$1
+
+!ENTRY org.eclipse.core.jobs 2 2 2014-10-08 09:33:05.444
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.aptana.usage.internal.DefaultAnalyticsEventHandler$1
+
+!ENTRY org.eclipse.core.jobs 2 2 2014-10-08 09:33:05.446
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.aptana.usage.internal.DefaultAnalyticsEventHandler$1
