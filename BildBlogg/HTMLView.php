@@ -1,27 +1,19 @@
 <?php
 
-require_once('/Register_Login/LoginHTMLView.php');
-
 //HTML basklass
 class HTMLView {
 	
-	private $loginView;
-	
-	public function __construct(){
-		$this->loginView = new LoginHTMLView();
-	}
-	
-	public function echoHTML($login) {
+	public function echoHTML($body) {
 		echo "
 				<!DOCTYPE html>
 				<html>
 				<head>
 					<meta charset=UTF-8>
-					<title>EJ222PJ Register</title>
+					<link rel='stylesheet' type='text/css' href='css/style.css'>
+					<title>EJ222PJ Projekt</title>
 				</head>
 				<body>
-					$login
-					$this->loginView
+					$body
 				</body>
 				</html>
 		";

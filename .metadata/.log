@@ -46,3 +46,15 @@ org.jruby.exceptions.RaiseException: (Errno::EINVAL) =::
 
 !ENTRY org.eclipse.core.jobs 2 2 2014-10-08 09:33:05.446
 !MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.aptana.usage.internal.DefaultAnalyticsEventHandler$1
+!SESSION 2014-10-08 14:00:00.800 -----------------------------------------------
+eclipse.buildId=3.6.0.201407100658
+java.version=1.6.0_22
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=sv_SE
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.aptana.editor.common 4 0 2014-10-08 16:14:34.662
+!MESSAGE (Build 3.6.0.201407100658) [ERROR]  (Errno::EINVAL) =::
+!STACK 0
+org.jruby.exceptions.RaiseException: (Errno::EINVAL) =::
+	at org.jruby.RubyHash.replace(org/jruby/RubyHash.java:1623)

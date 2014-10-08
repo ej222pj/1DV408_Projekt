@@ -16,8 +16,6 @@ class Model {
 	}
 	
 	public function registerUser(){
-		//$_SESSION["registerstatus"] = true;
-			
 		return true;
 	}
 	//Kollar mot datorbasen om en användare finns
