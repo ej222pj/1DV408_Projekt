@@ -14,19 +14,6 @@ class Model {
 		session_unset();
 		session_destroy();
 	}
-	
-	public function registerUser(){
-		return true;
-	}
-	//Kollar mot datorbasen om en användare finns
-	public function CheckRegisterNew($regusername){
-		if($this->username !== $regusername){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
 
 	//Kollar om sessionen är satt och retunera ture om användaren är inloggad
 	//Kollar även om användaren försöker att logga in med fake session.
@@ -59,22 +46,6 @@ class Model {
 		}
 		else{
 			return false;
-		}
-	}
-	//Lägger till användare till en datorbas
-	public function addUser($regusername, $regpassword){
-		try{
-			$db = $this->Repository->connection();
-	
-			$sql = "INSERT INTO registernew (name, password) VALUES (?, ?)";
-			$params = array($regusername, $regpassword);
-	
-			$query = $db->prepare($sql);
-			$query->execute($params);
-			return true;
-		}
-		catch(\Exception $e){
-			throw new \Exception("Databas error, Lägga till användare!");
 		}
 	}
 
