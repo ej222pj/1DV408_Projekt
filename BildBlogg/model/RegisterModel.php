@@ -1,6 +1,8 @@
 <?php
 
-require_once ('./Login/Repository.php');
+namespace model;
+
+require_once('./model/Repository.php');
 
 class RegisterModel {
 

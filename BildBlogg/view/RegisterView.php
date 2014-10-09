@@ -1,5 +1,6 @@
 <?php
 
+namespace view;
 
 class RegisterView {
 	private $model;
@@ -8,7 +9,7 @@ class RegisterView {
 	private $RegPvalue = "";
 	private $RepRegPvalue = "";
 	
-	public function __construct(RegisterModel $model) {
+	public function __construct(\model\RegisterModel $model) {
 		$this->model = $model;
 	}
 	

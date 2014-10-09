@@ -1,18 +1,18 @@
 <?php
 
-require_once('./Blogg/BlogView.php');
+namespace view;
+
+//require_once('./view/BlogView.php');
 
 class LoginView {
 	private $model;
-	private $blogView;
 	private $message;
 	private $user;
 	private $Uvalue = "";
 	private $Pvalue = "";
 
-	public function __construct(Model $model) {
+	public function __construct(\model\LoginModel $model) {
 		$this->model = $model;
-		$this->blogView = new BlogView();
 	}
 
 	//Sätter kakor
@@ -24,8 +24,6 @@ class LoginView {
 
 		$CookieTime = time()+60*60*24*30;
 		file_put_contents('CookieTime.txt', $CookieTime);
-
-		$this->message = "Inloggning lyckades och vi kommer ihåg dig nästa gång!";
 	}
 
 	//Kollar om kakan är satt.
@@ -37,11 +35,7 @@ class LoginView {
 			return false;
 		}
 	}
-	//Sätter vilken person som loggat in
-	public function setUser($username){
-		$ret = $this->user = $username;
-		return $ret;
-	}
+	
 	//Sätter Användarnamn boxen om man lyckas registrera sig
 	public function setUsername($username){
 		$ret = $this->Uvalue = $username;
@@ -67,19 +61,23 @@ class LoginView {
 
 	//Hämtar ut användarnamnet
 	public function getUsername(){
-			return $this->blogView->getUsername();
+		if(isset($_POST["username"])){
+			return $_POST["username"];
+		}
 	}
 
 	//Hämtar ut lösenordet
 	public function getPassword(){
-		return $this->blogView->getPassword();
+		if(isset($_POST["password"])){
+			return $_POST["password"];
+		}
 	}
 
 	//Kollar om man klickat på login knappen.
 	//Kollar om användaren skickar med input och skriver ut felmeddelanden.
 	//Sätter användanamnet till value på inmatningssträngen
 	public function didUserPressLogin(){
-		if(isset($_GET['Login'])){
+		if(isset($_POST['Login'])){
 			if(($_POST["username"]) == ""){
 				$this->message = "Användarnamn saknas!";
 			}
@@ -106,7 +104,6 @@ class LoginView {
 	//Kollar om man klickat på logout knappen.
 	public function didUserPressLogout(){
 		if(isset($_POST['Logout'])){
-			$this->message = "Du är nu utloggad!";
 			$this->removeCookie();
 			return true;
 		}

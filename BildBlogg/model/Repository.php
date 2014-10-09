@@ -1,5 +1,7 @@
 <?php
 
+namespace model;
+
 class Repository {	
 	private $dbConnection;
 	private $dbTable;
