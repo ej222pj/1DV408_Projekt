@@ -1,12 +1,13 @@
 <?php
 
 require_once("Model.php");
-require_once("LoginView.php");
+require_once("./Blogg/BlogView.php");
 require_once("./Register/RegisterView.php");
 require_once("./Register/RegisterModel.php");
 
-class Controller {
+class LoginController {
 	private $view;
+	//private $blogView;
 	private $registerView;
 	private $model;
 	private $RegisterModel;
@@ -14,6 +15,7 @@ class Controller {
 	public function __construct() {
 		$this->model = new Model();
 		$this->view = new LoginView($this->model);
+		//$this->blogView = new BlogView($this->model);
 		$this->RegisterModel = new RegisterModel();
 		$this->registerView = new RegisterView($this->RegisterModel);
 	}
@@ -41,7 +43,7 @@ class Controller {
 
 		//Kollar om användaren vill logga in.
 		//Kollar så att det är rätt användarnamn och lösenord. Om inte, skicka felmeddelande.
-		if($this->view->didUserPressLogin()){
+		if($_SESSION['UserWantsToLogin'] === true){
 			if($username != "" && $password != ""){
 				if($this->model->Checklogin($username, $password) == false){
 					$Message = "Felaktigt användarnamn och/eller lösenord";

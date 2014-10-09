@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_yOg5kU5QEeSDEuOD0Zr7qQ" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_yOhgoE5QEeSDEuOD0Zr7qQ" bindingContexts="_yOhgok5QEeSDEuOD0Zr7qQ">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;LoginView.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Login\LoginView.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/LoginView.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;BlogController.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Blogg\BlogController.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Blogg/BlogController.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;BlogView.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Blogg\BlogView.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Blogg/BlogView.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;BlogModel.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Blogg\BlogModel.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Blogg/BlogModel.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;Model.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Login\Model.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/Model.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;Controller.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Login\Controller.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/Controller.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;RegisterController.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Register\RegisterController.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Register/RegisterController.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;index.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Blogg\index.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Blogg/index.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;index.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\index.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/index.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;index.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Login\index.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/index.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;RegisterModel.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Register\RegisterModel.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Register/RegisterModel.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;HTMLView.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\HTMLView.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/HTMLView.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;LoginHTMLView.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Login\LoginHTMLView.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/LoginHTMLView.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;index.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Register_Login\index.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Register_Login/index.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;RegisterController.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Register_Login\RegisterController.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Register_Login/RegisterController.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;LoginView.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Login\LoginView.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/LoginView.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;BlogView.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Blogg\BlogView.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Blogg/BlogView.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;Controller.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Login\Controller.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/Controller.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;BlogController.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Blogg\BlogController.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Blogg/BlogController.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;BlogModel.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Blogg\BlogModel.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Blogg/BlogModel.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;Model.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Login\Model.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/Model.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;StartLogin.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Login\StartLogin.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/StartLogin.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;index.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Login\index.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/index.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;index.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Blogg\index.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Blogg/index.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;RegisterController.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Register\RegisterController.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Register/RegisterController.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;index.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\index.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/index.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;RegisterModel.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Register\RegisterModel.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Register/RegisterModel.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;HTMLView.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\HTMLView.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/HTMLView.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;LoginHTMLView.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Login\LoginHTMLView.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/LoginHTMLView.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;com.aptana.editor.php&quot; name=&quot;index.php&quot; tooltip=&quot;C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Register_Login\index.php&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Register_Login/index.php&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_yOhgoE5QEeSDEuOD0Zr7qQ" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_yZVCck5QEeSDEuOD0Zr7qQ" label="%trimmedwindow.label.eclipseSDK" x="0" y="0" width="960" height="1040">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_yOhgoE5QEeSDEuOD0Zr7qQ" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_yZVCck5QEeSDEuOD0Zr7qQ" label="%trimmedwindow.label.eclipseSDK" x="0" y="0" width="960" height="1024">
     <persistedState key="coolBarVisible" value="true"/>
     <persistedState key="perspectiveBarVisible" value="true"/>
     <persistedState key="workingSets" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workingSets/>"/>
@@ -51,7 +51,7 @@
           <tags>persp.viewSC:com.aptana.explorer.view</tags>
           <tags>persp.newWizSC:org.radrails.rails.ui.projectWizard</tags>
           <children xsi:type="basic:PartSashContainer" xmi:id="_yeyKMU5QEeSDEuOD0Zr7qQ" selectedElement="_yeyKPU5QEeSDEuOD0Zr7qQ" horizontal="true">
-            <children xsi:type="basic:PartSashContainer" xmi:id="_yeyKMk5QEeSDEuOD0Zr7qQ" containerData="2511" selectedElement="_yeyKM05QEeSDEuOD0Zr7qQ">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_yeyKMk5QEeSDEuOD0Zr7qQ" containerData="2591" selectedElement="_yeyKM05QEeSDEuOD0Zr7qQ">
               <children xsi:type="basic:PartStack" xmi:id="_yeyKM05QEeSDEuOD0Zr7qQ" elementId="left" containerData="7500" selectedElement="_yeyKNE5QEeSDEuOD0Zr7qQ">
                 <tags>newtablook</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_yeyKNE5QEeSDEuOD0Zr7qQ" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_yeqOYE5QEeSDEuOD0Zr7qQ"/>
@@ -67,7 +67,7 @@
                 <children xsi:type="advanced:Placeholder" xmi:id="_yeyKPE5QEeSDEuOD0Zr7qQ" elementId="com.aptana.snippets.ui.views.SnippetsView" ref="_yewVAU5QEeSDEuOD0Zr7qQ"/>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_yeyKPU5QEeSDEuOD0Zr7qQ" containerData="7489" selectedElement="_yeyKPk5QEeSDEuOD0Zr7qQ">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_yeyKPU5QEeSDEuOD0Zr7qQ" containerData="7409" selectedElement="_yeyKPk5QEeSDEuOD0Zr7qQ">
               <children xsi:type="advanced:Placeholder" xmi:id="_yeyKPk5QEeSDEuOD0Zr7qQ" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_yei5oE5QEeSDEuOD0Zr7qQ"/>
               <children xsi:type="basic:PartStack" xmi:id="_yeyKP05QEeSDEuOD0Zr7qQ" elementId="terminalArea" containerData="2500" selectedElement="_yeyKQE5QEeSDEuOD0Zr7qQ">
                 <tags>newtablook</tags>
@@ -100,7 +100,7 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_yei5oE5QEeSDEuOD0Zr7qQ" elementId="org.eclipse.ui.editorss" selectedElement="_yei5oU5QEeSDEuOD0Zr7qQ">
-      <children xsi:type="basic:PartStack" xmi:id="_yei5oU5QEeSDEuOD0Zr7qQ" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_qlAQoE73EeSjRM0LnPwogQ">
+      <children xsi:type="basic:PartStack" xmi:id="_yei5oU5QEeSDEuOD0Zr7qQ" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_K-zXkE76EeSjRM0LnPwogQ">
         <tags>newtablook</tags>
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
@@ -178,12 +178,10 @@
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_qlAQoE73EeSjRM0LnPwogQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="BlogController.php" iconURI="platform:/plugin/com.aptana.editor.php/icons/full/obj16/php.png" tooltip="C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Blogg\BlogController.php" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.aptana.editor.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Blogg/BlogController.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;471&quot; selectionTopPixel=&quot;102&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.aptana.editor.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Blogg/BlogController.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;531&quot; selectionTopPixel=&quot;247&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>com.aptana.editor.php</tags>
           <tags>removeOnHide</tags>
-          <tags>active</tags>
-          <tags>activeOnClose</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_KN77UE76EeSjRM0LnPwogQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="BlogModel.php" iconURI="platform:/plugin/com.aptana.editor.php/icons/full/obj16/php.png" tooltip="C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Blogg\BlogModel.php" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.aptana.editor.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Blogg/BlogModel.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;98&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
@@ -192,10 +190,12 @@
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_K-zXkE76EeSjRM0LnPwogQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="BlogView.php" iconURI="platform:/plugin/com.aptana.editor.php/icons/full/obj16/php.png" tooltip="C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Blogg\BlogView.php" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.aptana.editor.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Blogg/BlogView.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;180&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.aptana.editor.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Blogg/BlogView.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;128&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>com.aptana.editor.php</tags>
           <tags>removeOnHide</tags>
+          <tags>active</tags>
+          <tags>activeOnClose</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_myJscE8rEeSjRM0LnPwogQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="style.css" iconURI="platform:/plugin/com.aptana.editor.css/icons/css.png" tooltip="C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\css\style.css" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.aptana.editor.css&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/css/style.css&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;8&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
@@ -216,19 +216,19 @@
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_yVBjoE80EeSjRM0LnPwogQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Controller.php" iconURI="platform:/plugin/com.aptana.editor.php/icons/full/obj16/php.png" tooltip="C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Login\Controller.php" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.aptana.editor.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/Controller.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1655&quot; selectionTopPixel=&quot;316&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.aptana.editor.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/Controller.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;135&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1208&quot; selectionTopPixel=&quot;60&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>com.aptana.editor.php</tags>
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_128LME80EeSjRM0LnPwogQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="LoginView.php" iconURI="platform:/plugin/com.aptana.editor.php/icons/full/obj16/php.png" tooltip="C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Login\LoginView.php" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.aptana.editor.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/LoginView.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;4268&quot; selectionTopPixel=&quot;2271&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.aptana.editor.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/LoginView.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;301&quot; selectionTopPixel=&quot;120&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>com.aptana.editor.php</tags>
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_2QJ8cE80EeSjRM0LnPwogQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Model.php" iconURI="platform:/plugin/com.aptana.editor.php/icons/full/obj16/php.png" tooltip="C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Login\Model.php" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.aptana.editor.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/Model.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;634&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.aptana.editor.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/Model.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;634&quot; selectionTopPixel=&quot;810&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>com.aptana.editor.php</tags>
           <tags>removeOnHide</tags>
@@ -245,8 +245,20 @@
           <tags>com.aptana.editor.php</tags>
           <tags>removeOnHide</tags>
         </children>
-        <children xsi:type="basic:Part" xmi:id="_GadLYE82EeSjRM0LnPwogQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="index.php" iconURI="platform:/plugin/com.aptana.editor.php/icons/full/obj16/php.png" tooltip="C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Login\index.php" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.aptana.editor.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/index.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;220&quot; selectionOffset=&quot;9&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+        <children xsi:type="basic:Part" xmi:id="_GadLYE82EeSjRM0LnPwogQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="index.php | Login" iconURI="platform:/plugin/com.aptana.editor.php/icons/full/obj16/php.png" tooltip="C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Login\index.php" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.aptana.editor.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/index.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;169&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>com.aptana.editor.php</tags>
+          <tags>removeOnHide</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_cKmzoE-nEeSAPLr8fppPTA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="StartLogin.php" iconURI="platform:/plugin/com.aptana.editor.php/icons/full/obj16/php.png" tooltip="C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Login\StartLogin.php" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.aptana.editor.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Login/StartLogin.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;23&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>com.aptana.editor.php</tags>
+          <tags>removeOnHide</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_4bUQME-nEeSAPLr8fppPTA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="index.php" iconURI="platform:/plugin/com.aptana.editor.php/icons/full/obj16/php.png" tooltip="C:\Users\Eric\Documents\GitHub\1DV408_Projekt\BildBlogg\Blogg\index.php" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.aptana.editor.php&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/Eric/Documents/GitHub/1DV408_Projekt/BildBlogg/Blogg/index.php&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>com.aptana.editor.php</tags>
           <tags>removeOnHide</tags>
@@ -328,18 +340,18 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_yaXkQk5QEeSDEuOD0Zr7qQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pMjcgE7iEeSjRM0LnPwogQ" elementId="new.group"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pMjcgU7iEeSjRM0LnPwogQ" elementId="newWizardDropDown"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pMjcgk7iEeSjRM0LnPwogQ" elementId="new.ext" visible="false"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pMjcg07iEeSjRM0LnPwogQ" elementId="save.group" visible="false"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pMkDkE7iEeSjRM0LnPwogQ" elementId="save"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pMkDkU7iEeSjRM0LnPwogQ" elementId="saveAll"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pMkDkk7iEeSjRM0LnPwogQ" elementId="save.ext" visible="false"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_pMkqoE7iEeSjRM0LnPwogQ" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.gif" tooltip="Print" command="_yPKZ_05QEeSDEuOD0Zr7qQ"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pMoVAE7iEeSjRM0LnPwogQ" elementId="print.ext" visible="false"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pMoVAU7iEeSjRM0LnPwogQ" elementId="build.group"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pMo8EE7iEeSjRM0LnPwogQ" elementId="build.ext" visible="false"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pMo8EU7iEeSjRM0LnPwogQ" elementId="additions"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_2w0IIE-lEeSAPLr8fppPTA" elementId="new.group"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_2w0vME-lEeSAPLr8fppPTA" elementId="newWizardDropDown"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_2w0vMU-lEeSAPLr8fppPTA" elementId="new.ext" visible="false"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_2w0vMk-lEeSAPLr8fppPTA" elementId="save.group" visible="false"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_2w1WQE-lEeSAPLr8fppPTA" elementId="save"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_2w1WQU-lEeSAPLr8fppPTA" elementId="saveAll"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_2w1WQk-lEeSAPLr8fppPTA" elementId="save.ext" visible="false"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_2w19UE-lEeSAPLr8fppPTA" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.gif" tooltip="Print" command="_yPKZ_05QEeSDEuOD0Zr7qQ"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_2xA8cE-lEeSAPLr8fppPTA" elementId="print.ext" visible="false"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_2xA8cU-lEeSAPLr8fppPTA" elementId="build.group"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_2xBjgE-lEeSAPLr8fppPTA" elementId="build.ext" visible="false"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_2xBjgU-lEeSAPLr8fppPTA" elementId="additions"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_yaYLUE5QEeSDEuOD0Zr7qQ" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -347,29 +359,29 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Ep90sE6zEeS4suVdf6ojgg" elementId="org.eclipse.debug.ui.breakpointActionSet">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pNWGsE7iEeSjRM0LnPwogQ" elementId="breakpointGroup"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pNWGsU7iEeSjRM0LnPwogQ" elementId="org.eclipse.debug.ui.actions.SkipAllBreakpoints"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_20egIE-lEeSAPLr8fppPTA" elementId="breakpointGroup"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_20egIU-lEeSAPLr8fppPTA" elementId="org.eclipse.debug.ui.actions.SkipAllBreakpoints"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_yfeGsE5QEeSDEuOD0Zr7qQ" elementId="org.eclipse.debug.ui.launchActionSet">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pNWGsk7iEeSjRM0LnPwogQ" elementId="debug"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pNWGs07iEeSjRM0LnPwogQ" elementId="com.aptana.js.debug.ui.actions.openURL"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pNWGtE7iEeSjRM0LnPwogQ" elementId="com.aptana.js.debug.ui.actions.ToggleBreakpoint"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pNWGtU7iEeSjRM0LnPwogQ" elementId="org.eclipse.debug.internal.ui.actions.DebugDropDownAction"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pNWGtk7iEeSjRM0LnPwogQ" elementId="org.eclipse.debug.internal.ui.actions.RunDropDownAction"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_20fHME-lEeSAPLr8fppPTA" elementId="debug"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_20fHMU-lEeSAPLr8fppPTA" elementId="com.aptana.js.debug.ui.actions.openURL"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_20fHMk-lEeSAPLr8fppPTA" elementId="com.aptana.js.debug.ui.actions.ToggleBreakpoint"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_20fHM0-lEeSAPLr8fppPTA" elementId="org.eclipse.debug.internal.ui.actions.DebugDropDownAction"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_20fuQE-lEeSAPLr8fppPTA" elementId="org.eclipse.debug.internal.ui.actions.RunDropDownAction"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Ep9NoE6zEeS4suVdf6ojgg" elementId="org.eclipse.search.searchActionSet">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pNWGt07iEeSjRM0LnPwogQ" elementId="Search"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pNWGuE7iEeSjRM0LnPwogQ" elementId="org.eclipse.search.OpenSearchDialogPage"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_20fuQU-lEeSAPLr8fppPTA" elementId="Search"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_20fuQk-lEeSAPLr8fppPTA" elementId="org.eclipse.search.OpenSearchDialogPage"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_yfPdME5QEeSDEuOD0Zr7qQ" elementId="org.eclipse.ui.edit.text.actionSet.presentation">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pNWGuU7iEeSjRM0LnPwogQ" elementId="Presentation"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pNWGuk7iEeSjRM0LnPwogQ" elementId="com.aptana.editor.common.toggleMarkOccurrences"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pNWGu07iEeSjRM0LnPwogQ" elementId="org.eclipse.ui.edit.text.toggleBlockSelectionMode"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pNWGvE7iEeSjRM0LnPwogQ" elementId="org.eclipse.ui.edit.text.toggleShowWhitespaceCharacters"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pNWGvU7iEeSjRM0LnPwogQ" elementId="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_20fuQ0-lEeSAPLr8fppPTA" elementId="Presentation"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_20gVUE-lEeSAPLr8fppPTA" elementId="com.aptana.editor.common.toggleMarkOccurrences"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_20gVUU-lEeSAPLr8fppPTA" elementId="org.eclipse.ui.edit.text.toggleBlockSelectionMode"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_20gVUk-lEeSAPLr8fppPTA" elementId="org.eclipse.ui.edit.text.toggleShowWhitespaceCharacters"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_20gVU0-lEeSAPLr8fppPTA" elementId="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_yaYLUk5QEeSDEuOD0Zr7qQ" elementId="group.nav" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -377,12 +389,12 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_yaYLVE5QEeSDEuOD0Zr7qQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pMo8Ek7iEeSjRM0LnPwogQ" elementId="history.group"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pMo8E07iEeSjRM0LnPwogQ" elementId="group.application" visible="false"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pMo8FE7iEeSjRM0LnPwogQ" elementId="backardHistory"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pMo8FU7iEeSjRM0LnPwogQ" elementId="forwardHistory"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pMo8Fk7iEeSjRM0LnPwogQ" elementId="pin.group"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_pMo8F07iEeSjRM0LnPwogQ" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.gif" tooltip="Pin Editor" enabled="false" command="_yPGviU5QEeSDEuOD0Zr7qQ"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_2xBjgk-lEeSAPLr8fppPTA" elementId="history.group"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_2xBjg0-lEeSAPLr8fppPTA" elementId="group.application" visible="false"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_2xBjhE-lEeSAPLr8fppPTA" elementId="backardHistory"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_2xCKkE-lEeSAPLr8fppPTA" elementId="forwardHistory"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_2xCKkU-lEeSAPLr8fppPTA" elementId="pin.group"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_2xCKkk-lEeSAPLr8fppPTA" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.gif" tooltip="Pin Editor" enabled="false" command="_yPGviU5QEeSDEuOD0Zr7qQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_yaYLVU5QEeSDEuOD0Zr7qQ" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -394,8 +406,8 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_yaYLWU5QEeSDEuOD0Zr7qQ" elementId="org.eclipse.ui.workbench.help">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pMpjIE7iEeSjRM0LnPwogQ" elementId="group.help"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_pMpjIU7iEeSjRM0LnPwogQ" elementId="group.application" visible="false"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_2xD_wE-lEeSAPLr8fppPTA" elementId="group.help"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_2xD_wU-lEeSAPLr8fppPTA" elementId="group.application" visible="false"/>
       </children>
       <children xsi:type="menu:ToolControl" xmi:id="_ycENYE5QEeSDEuOD0Zr7qQ" elementId="PerspectiveSpacer" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
         <tags>stretch</tags>
