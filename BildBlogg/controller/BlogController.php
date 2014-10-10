@@ -35,6 +35,10 @@ class BlogController{
 			$ret = $this->doLogin();
 			return $ret;
 		}
+		elseif($this->registerView->didUserPressRegisterNew()){
+			$ret = $this->doRegister();
+			return $ret;
+		}
 		elseif($this->loginView->didUserPressLogout()){
 			$ret = $this->doLogin();
 			return $ret;
@@ -42,15 +46,6 @@ class BlogController{
 		elseif($this->loginModel->loginstatus() == false){
 			$ret = $this->doLogin();
 			return $ret;
-		}
-		elseif($this->registerView->didUserPressRegister()){
-			//Skapar ny controller
-			$c = new RegisterController();
-			$HTMLBody = $c->doRegister();
-			
-			//Skapar ny HTMLView
-			$view = new HTMLView();
-			$view->echoHTML($HTMLBody);
 		}
 		else{
 			return $this->blogView->HTMLPage($Message);
@@ -108,28 +103,21 @@ class BlogController{
 		$regusername = $this->registerView->getUsername();
 		$regpassword = $this->registerView->getPassword();
 		$repregpassword = $this->registerView->getRepPassword();
-		
+
 		//Kollar om man vill registrera sig. Kollar om allt stämmer.
-		if($this->registerView->didUserPressRegisterNew()){
-			if(strlen($regusername) > 2 && strlen($regpassword) > 5 && $repregpassword == $regpassword){
-				if($this->RegisterModel->compareUsername($regusername)){
-					if($this->RegisterModel->addUser($regusername, $regpassword)){
-						$Message = "Registrering av ny användare lyckades";		
-						$this->registerView->setUsername($regusername);		
-						return $this->view->HTMLPage($Message);
-					}
-				}
-				else{//Sätter användarnamnet i Namnboxen
-					$this->registerView->setUsername($regusername);
-					$Message = "Användarnamnet är redan upptaget";
+		if(strlen($regusername) > 2 && strlen($regpassword) > 5 && $repregpassword == $regpassword){
+			if($this->registerModel->compareUsername($regusername)){
+				if($this->registerModel->addUser($regusername, $regpassword)){
+					$Message = "Registrering av ny användare lyckades";		
+					$this->registerView->setUsername($regusername);		
+					return $this->blogView->HTMLPage($Message);
 				}
 			}
-			return $this->registerView->registerPage($Message);
-		}
-		//Registrera ny användare
-		//Öppnar registerpage viewn
-		if($this->registerView->didUserPressRegister()){
-			return $this->registerView->registerPage($Message);
+			else{//Sätter användarnamnet i Namnboxen
+				$this->registerView->setUsername($regusername);
+				$Message = "Användarnamnet är redan upptaget";
+			}
+			return $this->blogView->HTMLPage($Message);		
 		}
 	}
 }

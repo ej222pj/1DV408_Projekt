@@ -6,6 +6,7 @@ class BlogView {
 	private $model;
 	private $user;
 	private $Uvalue = "";
+	private $RegUvalue = "";
 	
 	public function __construct(\model\BlogModel $model) {
 		$this->model = $model;
@@ -19,12 +20,6 @@ class BlogView {
 	public function setUser($username){
 		$ret = $this->user = $username;
 		return $ret;
-	}
-	
-	public function didUserPressRegister(){
-		if(isset($_POST['Register'])){
-			return true;
-		}
 	}
 	
 	public function HTMLPage($statusMessage){
@@ -58,6 +53,21 @@ class BlogView {
 								<input type=submit name='Login' value='Logga in'>
 							</fieldset>
 						</form>
+						
+					<h2>Ej Inloggad, Registrerar användare</h2>
+					<form method='post'>
+						<fieldset>
+							<legend>Login - Skriv in användarnamn och lösenord</legend>
+							<p>$Message</p>
+							<label>Namn:</label>
+							<input type=text size=20 name='regusername' id='regUserNameID' value='$this->RegUvalue'>
+							<label>Lösenord:</label>
+							<input type=password size=20 name='regpassword' id='regPasswordID' value=''>
+							<label>Repetera Lösenord:</label>
+							<input type=password size=20 name='repregpassword' id='repregPasswordID' value=''>
+							<input type=submit name='RegisterNew' value='Registrera'>
+						</fieldset>
+					</form>
 				
 				";
 			}//<p>$this->message</p>
