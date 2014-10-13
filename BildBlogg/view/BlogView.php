@@ -12,6 +12,16 @@ class BlogView {
 		$this->model = $model;
 	}
 	
+	public function printImg(){
+		$ret = array();
+		$dirname = './UploadedPics/';
+		$images = glob($dirname.'*.jpg');
+		foreach($images as $image) {
+			$ret[] =  '<img class=pictures src="'.$image.'" /><br />';
+		}
+		return $ret;
+	}
+	
 	public function didUserPressUpload(){
 		if(isset($_POST['upload'])){
 			return true;
@@ -69,6 +79,7 @@ class BlogView {
 				";
 			}//<p>$this->message</p>
 			if($this->model->loginstatus()){
+				$images = $this->printImg();				
 				$ret .= "
 						<h2>" . $_SESSION['user'] . "</h2>
 						<form method='post'>
@@ -77,13 +88,18 @@ class BlogView {
 						<div class='uploadborder'>	
 						<h2>Ladda upp bild</h2>
 						<p class='textsize'>$Message</p>
+						
 					<form method='post' enctype='multipart/form-data'>
 						<label for='file'>Filnamn:</label>
 						<input type='file' name='file' id='file'>
 						<input type='submit' name='upload' value='Upload'>
 					</form>
-					</div>
-						";
+					</div> 
+
+					";
+					 foreach($images as $image) {
+						$ret .= $image;
+					 }
 		}
 		return $ret;
 	}

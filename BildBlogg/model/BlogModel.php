@@ -16,7 +16,7 @@ class BlogModel {
 		return $this->loginModel->loginstatus();
 	}
 	
-	public function imgUploaded(){
+	public function imgExists(){
 		if(file_exists("./UploadedPics/" . $_FILES["file"]["name"])){
 			return true;
 		}

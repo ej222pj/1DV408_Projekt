@@ -55,11 +55,14 @@ class BlogController{
 			return $this->blogView->HTMLPage($Message);
 		}
 	}
-	
+	//Laddar upp bilder.
+	//Strukturen från denna koden är tagen ifrån
+	//http://www.w3schools.com/php/php_file_upload.asp
+	//Men jag har gjort en hel del ändringar
 	public function doUpload(){
 		$Message = "";
 		
-		$allowedExts = array("gif", "jpeg", "jpg", "png");
+		$allowedExts = array("jpeg", "jpg", "png");
 		$temp = explode(".", $_FILES["file"]["name"]);
 		$extension = end($temp);
 
@@ -72,7 +75,7 @@ class BlogController{
 				$Message = "Det gick inte att ladda upp bilden!";
 			} 
 			else{
-				if($this->blogModel->imgUploaded()){
+				if($this->blogModel->imgExists()){
 					$Message = $_FILES["file"]["name"] . " finns redan!";
 				} 
 				else{
