@@ -12,11 +12,11 @@ class BlogView {
 		$this->model = $model;
 	}
 	
-	// public function didUserPressLoginView(){
-		// if(isset($_POST['LoginView'])){
-			// return true;
-		// }
-	//}
+	public function didUserPressUpload(){
+		if(isset($_POST['upload'])){
+			return true;
+		}
+	}
 	public function setUser($username){
 		$ret = $this->user = $username;
 		return $ret;
@@ -71,10 +71,18 @@ class BlogView {
 			if($this->model->loginstatus()){
 				$ret .= "
 						<h2>" . $_SESSION['user'] . "</h2>
-				 		<p>$Message</p>
-						<form method ='post'>
+						<form method='post'>
 							<input type=submit name='Logout' value='Logga ut'>
 						</form>
+						<div class='uploadborder'>	
+						<h2>Ladda upp bild</h2>
+						<p class='textsize'>$Message</p>
+					<form method='post' enctype='multipart/form-data'>
+						<label for='file'>Filnamn:</label>
+						<input type='file' name='file' id='file'>
+						<input type='submit' name='upload' value='Upload'>
+					</form>
+					</div>
 						";
 		}
 		return $ret;

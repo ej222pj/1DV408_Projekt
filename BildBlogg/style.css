@@ -17,8 +17,14 @@ p{
 	margin: 0;
 	padding: 0;
 }
+.textsize{
+	margin: 10px;
+	font-size: 18px;
+	color: #FF3333;
+}
 h2{
 	font-size: 20px;
+	margin: 0;
 }
 .border{
 	border-top: 1px solid black;
@@ -32,5 +38,8 @@ h2{
 	border-bottom: 1px solid black;
 	border-right: 1px solid black;
 	overflow: hidden;
+}
+.uploadborder{
+	border: 1px solid black;
 }
 

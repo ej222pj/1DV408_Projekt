@@ -47,10 +47,46 @@ class BlogController{
 			$ret = $this->doLogin();
 			return $ret;
 		}
+		elseif($this->blogView->didUserpressUpload()){
+			$ret= $this->doUpload();
+			return $ret;
+		}
 		else{
 			return $this->blogView->HTMLPage($Message);
 		}
 	}
+	
+	public function doUpload(){
+		$Message = "";
+		
+		$allowedExts = array("gif", "jpeg", "jpg", "png");
+		$temp = explode(".", $_FILES["file"]["name"]);
+		$extension = end($temp);
+
+		if ((($_FILES["file"]["type"] == "image/jpeg")
+		|| ($_FILES["file"]["type"] == "image/jpg")
+		|| ($_FILES["file"]["type"] == "image/png"))
+		&& ($_FILES["file"]["size"] < 52428800)
+		&& in_array($extension, $allowedExts)){
+			if ($_FILES["file"]["error"] > 0) {
+				$Message = "Det gick inte att ladda upp bilden!";
+			} 
+			else{
+				if($this->blogModel->imgUploaded()){
+					$Message = $_FILES["file"]["name"] . " finns redan!";
+				} 
+				else{
+					$this->blogModel->saveImg();
+					$Message = $_FILES["file"]["name"] . " är uppladdad!";
+				}
+			}
+		}
+		else {
+			$Message = "Fel filformat";
+		}
+		return $this->blogView->HTMLPage($Message);
+	}
+	
 	public function doLogin() {
 		$Message = "";
 		//Inloggning via cookies
