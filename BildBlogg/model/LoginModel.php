@@ -36,7 +36,7 @@ class LoginModel {
 
 		$db = $this->Repository->connection();
 			
-			$sql = "SELECT * FROM registernew WHERE name = ?";
+			$sql = "SELECT * FROM registerforblog WHERE name = ?";
 			$params = array($username);
 			
 			$query = $db -> prepare($sql);
@@ -59,7 +59,7 @@ class LoginModel {
 		try{
 			$db = $this->Repository->connection();
 			
-			$sql = "SELECT * FROM registernew WHERE name = ? && password = ?";
+			$sql = "SELECT * FROM registerforblog WHERE name = ? && password = ?";
 			$params = array($username, $password);
 			
 			$query = $db -> prepare($sql);

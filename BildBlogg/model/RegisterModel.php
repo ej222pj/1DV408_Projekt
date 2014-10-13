@@ -30,7 +30,7 @@ class RegisterModel {
 		try{
 			$db = $this->Repository->connection();
 	
-			$sql = "INSERT INTO registernew (name, password) VALUES (?, ?)";
+			$sql = "INSERT INTO registerforblog (name, password) VALUES (?, ?)";
 			$params = array($regusername, $regpassword);
 	
 			$query = $db->prepare($sql);
@@ -46,7 +46,7 @@ class RegisterModel {
 		try{
 			$db = $this->Repository->connection();
 			
-			$sql = "SELECT * FROM registernew WHERE name = ?";
+			$sql = "SELECT * FROM registerforblog WHERE name = ?";
 			$params = array($regusername);
 			
 			$query = $db -> prepare($sql);

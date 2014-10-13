@@ -62,15 +62,10 @@ class BlogController{
 	public function doUpload(){
 		$Message = "";
 		
-		$allowedExts = array("jpeg", "jpg", "png");
-		$temp = explode(".", $_FILES["file"]["name"]);
-		$extension = end($temp);
+		$rubrik = $this->blogView->getRubrik();
+		//$regpassword = $this->registerView->getPassword();
 
-		if ((($_FILES["file"]["type"] == "image/jpeg")
-		|| ($_FILES["file"]["type"] == "image/jpg")
-		|| ($_FILES["file"]["type"] == "image/png"))
-		&& ($_FILES["file"]["size"] < 52428800)
-		&& in_array($extension, $allowedExts)){
+		if ($this->blogModel->checkPic()){
 			if ($_FILES["file"]["error"] > 0) {
 				$Message = "Det gick inte att ladda upp bilden!";
 			} 

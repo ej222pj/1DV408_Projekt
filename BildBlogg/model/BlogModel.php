@@ -16,6 +16,23 @@ class BlogModel {
 		return $this->loginModel->loginstatus();
 	}
 	
+	public function checkPic(){
+		$allowedExts = array("jpeg", "jpg", "png");
+		$temp = explode(".", $_FILES["file"]["name"]);
+		$extension = end($temp);
+		
+		if(($_FILES["file"]["type"] == "image/jpeg")
+		|| ($_FILES["file"]["type"] == "image/jpg")
+		|| ($_FILES["file"]["type"] == "image/png")
+		&& ($_FILES["file"]["size"] < 52428800)
+		&& in_array($extension, $allowedExts)){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
 	public function imgExists(){
 		if(file_exists("./UploadedPics/" . $_FILES["file"]["name"])){
 			return true;

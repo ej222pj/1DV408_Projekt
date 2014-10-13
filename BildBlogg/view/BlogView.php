@@ -5,8 +5,10 @@ namespace view;
 class BlogView {
 	private $model;
 	private $user;
+	private $message = "";
 	private $Uvalue = "";
 	private $RegUvalue = "";
+	private $picHeader = "";
 	
 	public function __construct(\model\BlogModel $model) {
 		$this->model = $model;
@@ -27,6 +29,16 @@ class BlogView {
 			return true;
 		}
 	}
+	
+	public function getRubrik(){
+		if(($_POST["rubrik"]) == ""){
+			$this->message = "Rubrik saknas!";
+		}
+		else{
+			return $_POST["rubrik"];
+		}
+	}
+	
 	public function setUser($username){
 		$ret = $this->user = $username;
 		return $ret;
@@ -48,6 +60,7 @@ class BlogView {
 						<form method='post' id='login'>
 							<fieldset>
 								<legend>Logga in</legend>
+								<p>$this->message</p>
 								<p>$Message</p>
 								<label>Användarnamn:</label>
 								<input type=text size=2 name='username' id='UserNameID' value='$this->Uvalue'>
@@ -64,6 +77,7 @@ class BlogView {
 					<form method='post' id='register'>
 						<fieldset>
 							<legend>Registrera ny användare</legend>
+							<p>$this->message</p>
 							<p>$Message</p>
 							<label>Namn:</label>
 							<input type=text size=5 name='regusername' id='regUserNameID' value='$this->RegUvalue'>
@@ -87,11 +101,14 @@ class BlogView {
 						</form>
 						<div class='uploadborder'>	
 						<h2>Ladda upp bild</h2>
+						<p>$this->message</p>
 						<p class='textsize'>$Message</p>
 						
 					<form method='post' enctype='multipart/form-data'>
 						<label for='file'>Filnamn:</label>
 						<input type='file' name='file' id='file'>
+						<label>Rubrik:</label>
+						<input type=text size=5 name='rubrik' id='rubrik' value='$this->picHeader'>
 						<input type='submit' name='upload' value='Upload'>
 					</form>
 					</div> 
