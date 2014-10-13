@@ -32,49 +32,45 @@ class BlogView {
 		$ret = "<img src='./pic/bild.jpg' style='Width:960px;Height:200px' alt=''>";
 			
 			if($this->model->loginstatus() == false) {
-				$ret .= "
-					<form method='post'>
-							<input type=submit name='' value='Något'>
-							<input type=submit name='LoginView' value='Logga in'>
-							<input type=submit name='Register' value='Registrera'>
-					</form>
-					
+				$ret .= "	
+				<div class='border'>				
 					<h2>Ej inloggad</h2>
-						<form method='post'>
+						<form method='post' id='login'>
 							<fieldset>
-								<legend>Login - Skriv in användarnamn och lösenord</legend>
+								<legend>Logga in</legend>
 								<p>$Message</p>
 								<label>Användarnamn:</label>
-								<input type=text size=20 name='username' id='UserNameID' value='$this->Uvalue'>
+								<input type=text size=2 name='username' id='UserNameID' value='$this->Uvalue'>
 								<label>Lösenord:</label>
-								<input type=password size=20 name='password' id='PasswordID' value=''>
+								<input type=password size=2 name='password' id='PasswordID' value=''>
 								<label>Håll mig inloggad  :</label>
 								<input type=checkbox name='checkbox'>
 								<input type=submit name='Login' value='Logga in'>
 							</fieldset>
 						</form>
-						
-					<h2>Ej Inloggad, Registrerar användare</h2>
-					<form method='post'>
+					</div>
+					<div class='bordertwo'>	
+					<h2>Registrerar användare</h2>
+					<form method='post' id='register'>
 						<fieldset>
-							<legend>Login - Skriv in användarnamn och lösenord</legend>
+							<legend>Registrera ny användare</legend>
 							<p>$Message</p>
 							<label>Namn:</label>
-							<input type=text size=20 name='regusername' id='regUserNameID' value='$this->RegUvalue'>
+							<input type=text size=5 name='regusername' id='regUserNameID' value='$this->RegUvalue'>
 							<label>Lösenord:</label>
-							<input type=password size=20 name='regpassword' id='regPasswordID' value=''>
+							<input type=password size=5 name='regpassword' id='regPasswordID' value=''>
 							<label>Repetera Lösenord:</label>
-							<input type=password size=20 name='repregpassword' id='repregPasswordID' value=''>
+							<input type=password size=5 name='repregpassword' id='repregPasswordID' value=''>
 							<input type=submit name='RegisterNew' value='Registrera'>
 						</fieldset>
 					</form>
+				</div>
 				
 				";
 			}//<p>$this->message</p>
 			if($this->model->loginstatus()){
 				$ret .= "
-						<h2>" . $_SESSION['user'] . " är inloggad</h2>
-				 		
+						<h2>" . $_SESSION['user'] . "</h2>
 				 		<p>$Message</p>
 						<form method ='post'>
 							<input type=submit name='Logout' value='Logga ut'>
