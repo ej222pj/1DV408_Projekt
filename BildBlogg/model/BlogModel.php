@@ -2,7 +2,8 @@
 
 namespace model;
 
-require_once('./model/LoginModel.php');    
+require_once('./model/LoginModel.php'); 
+require_once('./model/Repository.php');   
 	
 //Hur ska jag spara bilder?
 
@@ -10,6 +11,7 @@ class BlogModel {
 	
 	public function __construct() {
 		$this->loginModel = new LoginModel();
+		$this->Repository = new Repository();
 	}
 	
 	public function loginStatus(){
@@ -43,8 +45,20 @@ class BlogModel {
 	}
 	
 	public function saveImg(){
-		move_uploaded_file($_FILES["file"]["tmp_name"],
-		"./UploadedPics/" . $_FILES["file"]["name"]);
+		//Save to database
+		$image = $_FILES['file']['name'];
+		$uploader = $_SESSION['user'];
+		$db = $this->Repository->connection();
+		
+		$sql = "INSERT INTO images (uploader, imagename) VALUES(?, ?)";
+		$params = array($uploader, $image);
+		
+		$query = $db -> prepare($sql);
+		$query -> execute($params);
+		//$result = $query -> fetch();
+		
+		//Save to folder
+		move_uploaded_file($_FILES["file"]["tmp_name"], "./UploadedPics/" . $_FILES["file"]["name"]);
 	}
 }
 	

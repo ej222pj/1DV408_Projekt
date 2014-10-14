@@ -56,7 +56,7 @@ class BlogController{
 		}
 	}
 	//Laddar upp bilder.
-	//Strukturen från denna koden är tagen ifrån
+	//Strukturen till denna koden är tagen ifrån
 	//http://www.w3schools.com/php/php_file_upload.asp
 	//Men jag har gjort en hel del ändringar
 	public function doUpload(){
@@ -66,17 +66,12 @@ class BlogController{
 		//$regpassword = $this->registerView->getPassword();
 
 		if ($this->blogModel->checkPic()){
-			if ($_FILES["file"]["error"] > 0) {
+			if ($_FILES["file"]["error"] > 0 || empty($this->blogView->getRubrik())) {
 				$Message = "Det gick inte att ladda upp bilden!";
 			} 
 			else{
-				if($this->blogModel->imgExists()){
-					$Message = $_FILES["file"]["name"] . " finns redan!";
-				} 
-				else{
-					$this->blogModel->saveImg();
-					$Message = $_FILES["file"]["name"] . " är uppladdad!";
-				}
+				$this->blogModel->saveImg();
+				$Message = $_FILES["file"]["name"] . " är uppladdad!";
 			}
 		}
 		else {

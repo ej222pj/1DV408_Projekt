@@ -9,6 +9,7 @@ class BlogView {
 	private $Uvalue = "";
 	private $RegUvalue = "";
 	private $picHeader = "";
+	private $picComment = "";
 	
 	public function __construct(\model\BlogModel $model) {
 		$this->model = $model;
@@ -109,6 +110,8 @@ class BlogView {
 						<input type='file' name='file' id='file'>
 						<label>Rubrik:</label>
 						<input type=text size=5 name='rubrik' id='rubrik' value='$this->picHeader'>
+						<label>Comment:</label>
+						<textarea type=text rows='3' cols='50' name='comment' id='comment' value='$this->picComment'></textarea>
 						<input type='submit' name='upload' value='Upload'>
 					</form>
 					</div> 
