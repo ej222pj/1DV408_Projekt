@@ -15,13 +15,12 @@ class BlogView {
 		$this->model = $model;
 	}
 	
-	public function printImg(){
-		$ret = array();
+	public function printImg($image){
 		$dirname = './UploadedPics/';
-		$images = glob($dirname.'*.jpg');
-		foreach($images as $image) {
-			$ret[] =  '<img class=pictures src="'.$image.'" /><br />';
-		}
+		// foreach($images as $image) {
+		$ret = '<a href=""><img class=pictures src="' . $dirname . $image . '" /></a>';
+		// }
+		//$ret = $dirname . $ret;
 		return $ret;
 	}
 	
@@ -94,7 +93,8 @@ class BlogView {
 				";
 			}//<p>$this->message</p>
 			if($this->model->loginstatus()){
-				$images = $this->printImg();				
+				//$images = $this->printImg();
+				$posts = $this->model->blogPosts();			
 				$ret .= "
 						<h2>" . $_SESSION['user'] . "</h2>
 						<form method='post'>
@@ -117,8 +117,13 @@ class BlogView {
 					</div> 
 
 					";
-					 foreach($images as $image) {
-						$ret .= $image;
+					 foreach($posts as $blogPost) {
+						$ret .= "
+							<div class='blogpost'> 
+								<h3>" . $blogPost['rubrik'] . "</h3>" 
+								. " " . $this->printImg($blogPost['image']) . 
+								"</div>
+								";
 					 }
 		}
 		return $ret;

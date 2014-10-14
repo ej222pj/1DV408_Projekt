@@ -61,17 +61,21 @@ class BlogController{
 	//Men jag har gjort en hel del ändringar
 	public function doUpload(){
 		$Message = "";
-		
+		$newPicName = "";
 		$rubrik = $this->blogView->getRubrik();
-		//$regpassword = $this->registerView->getPassword();
 
 		if ($this->blogModel->checkPic()){
-			if ($_FILES["file"]["error"] > 0 || empty($this->blogView->getRubrik())) {
+			if ($_FILES["file"]["error"] > 0 || empty($rubrik)) {
 				$Message = "Det gick inte att ladda upp bilden!";
 			} 
 			else{
-				$this->blogModel->saveImg();
-				$Message = $_FILES["file"]["name"] . " är uppladdad!";
+				// if($this->blogModel->imgExists()){
+				// } 
+				// else{
+					$newPicName = $this->blogModel->changeImgName($_FILES["file"]["name"]);
+					$this->blogModel->saveImg($newPicName, $rubrik);
+					$Message = $newPicName . " är uppladdad!";
+				// }
 			}
 		}
 		else {
