@@ -48,11 +48,11 @@ class BlogController{
 			return $ret;
 		}
 		elseif($this->blogView->didUserpressUpload()){
-			$ret= $this->doUpload();
+			$ret = $this->doUpload();
 			return $ret;
 		}
 		elseif($this->blogView->didUserPressRemovePost()){
-			$ret= $this->doRemovePost();
+			$ret = $this->doRemovePost();
 			return $ret;
 		}
 		else{
@@ -65,7 +65,6 @@ class BlogController{
 	//Men jag har gjort en hel del ändringar
 	public function doUpload(){
 		$Message = "";
-		$newPicName = "";
 		$rubrik = $this->blogView->getRubrik();
 
 		if ($this->blogModel->checkPic()){
@@ -73,13 +72,9 @@ class BlogController{
 				$Message = "Det gick inte att ladda upp bilden!";
 			} 
 			else{
-				// if($this->blogModel->imgExists()){
-				// } 
-				// else{
-					$newPicName = $this->blogModel->changeImgName($_FILES["file"]["name"]);
-					$this->blogModel->saveImg($newPicName, $rubrik);
-					$Message = $newPicName . " är uppladdad!";
-				// }
+				$newPicName = $this->blogModel->changeImgName($_FILES["file"]["name"]);
+				$this->blogModel->saveImg($newPicName, $rubrik);
+				$Message = $newPicName . " är uppladdad!";
 			}
 		}
 		else {
@@ -91,10 +86,16 @@ class BlogController{
 	public function doRemovePost(){
 		$Message = "";
 		
-		$removePost = $this->blogView->postForRemoval();//Hämta namnet på bilden som ska bort
+		$postPic = $this->blogView->postForRemoval();//Hämta namnet på bilden som ska bort
 		
+		if(empty($postPic)){
+			$Message = "Det gick inte att ta bort inlägget";
+		}
+		else{
+			$this->blogModel->removePost($postPic);
+			$Message = "Inlägget är borttaget";
+		}
 		
-		var_dump($ret);
 		return $this->blogView->HTMLPage($Message);
 	}
 	

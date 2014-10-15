@@ -128,8 +128,10 @@ class BlogView {
 					</div> 
 
 					";
-
-					foreach(array_reverse($posts) as $blogPost) {
+					//Sorterar listan efter datum
+					usort($posts, function($a, $b) { return $a["timestamp"] - $b["timestamp"]; });
+					
+					foreach($posts as $blogPost) {
 					 	$removePostButton = "";
 						$this->postNr++;
 						

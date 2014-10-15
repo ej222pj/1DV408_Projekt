@@ -82,22 +82,28 @@ class BlogModel {
 	}
 	
 	public function saveImg($newPicName, $rubrik){
-		//Save to folder
-		move_uploaded_file($_FILES["file"]["tmp_name"], $this->picPath . $newPicName);
-		
-		//Save to database
-		$uploader = $_SESSION['user'];
-		$db = $this->Repository->connection();
-		
-		$sql = "INSERT INTO blogimages (uploader, image, rubrik) VALUES(?, ?, ?)";
-		$params = array($uploader, $newPicName, $rubrik);
-		
-		$query = $db -> prepare($sql);
-		$query -> execute($params);
+		try{		
+			//Save to folder
+			move_uploaded_file($_FILES["file"]["tmp_name"], $this->picPath . $newPicName);
+			
+			//Save to database
+			$uploader = $_SESSION['user'];
+			$db = $this->Repository->connection();
+			
+			$sql = "INSERT INTO blogimages (uploader, image, rubrik) VALUES(?, ?, ?)";
+			$params = array($uploader, $newPicName, $rubrik);
+			
+			$query = $db -> prepare($sql);
+			$query -> execute($params);
+		}
+		catch(\Exception $e){
+			throw new \Exception("Databas error, Spara bilden!");
+		}
 	}
 	
 	public function blogPosts(){
-		$db = $this->Repository->connection();
+		try{	
+			$db = $this->Repository->connection();
 			
 			$sql = "SELECT * FROM blogimages";
 			$params = array();
@@ -106,7 +112,30 @@ class BlogModel {
 			$query->execute($params);
 			$result = $query->fetchAll();
 			
-			return $result;		
+			return $result;	
+			}
+		catch(\Exception $e){
+			throw new \Exception("Databas error, Hämta blogposter!");
+		}	
+	}
+	
+	public function removePost($postPic){
+		try{	
+			//Tar bort bilden med info från databasen
+			$db = $this->Repository->connection();
+			
+			$sql = "DELETE FROM blogimages WHERE image = ?";
+			$params = array($postPic);
+			
+			$query = $db->prepare($sql);
+			$query->execute($params);
+			
+			//Tar bort bilden från mappen
+			unlink($this->picPath . $postPic);
+		}
+		catch(\Exception $e){
+			throw new \Exception("Databas error, Ta bort bilden!");
+		}
 	}
 }
 	
