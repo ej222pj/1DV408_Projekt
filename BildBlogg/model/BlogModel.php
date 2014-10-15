@@ -38,7 +38,6 @@ class BlogModel {
 	}
 	
 	public function imgExists(){
-
 		if(file_exists($this->picPath . $_FILES["file"]["name"])){
 			return true;
 		}
@@ -46,6 +45,7 @@ class BlogModel {
 			return false;
 		}
 	}
+	
 	//Att ändra filnamn hittade jag en bra funktion på 
 	//http://css-tricks.com/snippets/php/check-if-file-exists-append-number-to-name/
 	public function changeImgName($filename){
@@ -107,13 +107,6 @@ class BlogModel {
 			$result = $query->fetchAll();
 			
 			return $result;		
-	
-			// if($username == $result['name'] && $password == $result['password']){
-				// $_SESSION["loginstatus"] = $username;
-				// $_SESSION["browserstatus"] = $_SERVER['HTTP_USER_AGENT'];
-				// $_SESSION['UserWantsToLogin'] = true;
-				// return true;
-			// }
 	}
 }
 	

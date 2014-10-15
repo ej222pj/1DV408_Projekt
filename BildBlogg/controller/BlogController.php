@@ -51,6 +51,10 @@ class BlogController{
 			$ret= $this->doUpload();
 			return $ret;
 		}
+		elseif($this->blogView->didUserPressRemovePost()){
+			$ret= $this->doRemovePost();
+			return $ret;
+		}
 		else{
 			return $this->blogView->HTMLPage($Message);
 		}
@@ -81,6 +85,16 @@ class BlogController{
 		else {
 			$Message = "Fel filformat";
 		}
+		return $this->blogView->HTMLPage($Message);
+	}
+	
+	public function doRemovePost(){
+		$Message = "";
+		
+		$removePost = $this->blogView->postForRemoval();//Hämta namnet på bilden som ska bort
+		
+		
+		var_dump($ret);
 		return $this->blogView->HTMLPage($Message);
 	}
 	

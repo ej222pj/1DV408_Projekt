@@ -43,12 +43,22 @@ h2{
 .uploadborder{
 	border: 1px solid black;
 }
-.pictures{
-	width: 400px;
-	margin-top: 5px;
-}
 .blogpost{
 	border: 1px solid black;
 	margin-top: 5px;
 	margin-bottom: 5px;
+	position: relative;
+}
+.pictures{
+	width: 400px;
+}
+.removePost{
+	float: left;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.hidden{
+	visibility: hidden;
+	font-size: 1px;
 }
