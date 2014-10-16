@@ -65,3 +65,8 @@ h2{
 	visibility: hidden;
 	font-size: 1px;
 }
+.comment {
+min-height: 60px;
+overflow-y: auto;
+word-wrap:break-word
+}

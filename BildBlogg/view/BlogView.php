@@ -29,6 +29,12 @@ class BlogView {
 		}
 	}
 	
+	public function didUserPressComment(){
+		if(isset($_POST['comment'])){
+			return true;
+		}
+	}
+	
 	public function didUserPressRemovePost(){		
 		if(isset($_POST['removePost'])){
 			return true;
@@ -37,6 +43,10 @@ class BlogView {
 	
 	public function postForRemoval(){//Tar fram namnet på bilden som ska bort
 		return $_POST['picForRemoval'];
+	}
+	
+	public function commentThisPost(){//Tar fram Id på bilden som ska kommentera
+		return $_POST['commentThisPost'];
 	}
 	
 	public function getRubrik(){
@@ -103,7 +113,8 @@ class BlogView {
 			}
 			//Om man är inloggad
 			if($this->model->loginstatus()){
-				$posts = $this->model->blogPosts();			
+				$posts = $this->model->blogPosts();		
+					
 				$ret .= "
 						<h2>" . $_SESSION['user'] . "</h2>
 						<form method='post'>
@@ -119,13 +130,12 @@ class BlogView {
 						<input type='file' name='file' id='file'>
 						<label>Rubrik:</label>
 						<input type=text size=5 name='rubrik' id='rubrik' value='$this->picHeader'>
-						<label>Comment:</label>
-						<textarea type=text rows='1' cols='50' name='comment' id='comment' value='$this->picComment'></textarea>
 						<input type='submit' name='upload' value='Upload'>
 					</form>
 					</div> 
 
 					";
+					
 					//Sorterar listan efter datum
 					usort($posts, function($a, $b){
 						return $a["timestamp"] - $b["timestamp"]; 
@@ -134,6 +144,7 @@ class BlogView {
 					foreach($posts as $blogPost) {
 					 	$removePostButton = "";
 						$this->postNr++;
+						//$comments = $this->model->picComments($blogPost['Id']);
 						
 						//Tar fram en "ta bort post" knapp om inloggad användare har tillstånd
 						if($blogPost['uploader'] == $_SESSION['user'] || $_SESSION['user'] == "Admin"){
@@ -145,11 +156,16 @@ class BlogView {
 						$ret .= "
 							<div class='blogpost'> 
 								<h3>" . $blogPost['rubrik'] . "</h3> " 
-								. $this->printImg($blogPost['image']) . " 
+								. $this->printImg($blogPost['image']) . "
+								<form method='post'>
+									<textarea type=text cols='20' name='comment' class='comment'></textarea>
+									<input type=submit name='comment' value='Kommentera'>
+									<input type=text name='commentThisPost' class='hidden' value=" . $blogPost['Id'] . ">
+								</form>
 								<div class='blogcomments'>Här ska de vara kommentarer</div>" .								
 								$removePostButton . "
-								<p>Uppladdare: ". $blogPost['uploader'] . "</p>
-								<p>Datum: ". $blogPost['timestamp'] . "</p>																
+								<p>Uppladdare: " . $blogPost['uploader'] . "</p>
+								<p>Datum: " . $blogPost['timestamp'] . "</p>																
 							</div>
 							";
 					}

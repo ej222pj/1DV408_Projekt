@@ -55,6 +55,10 @@ class BlogController{
 			$ret = $this->doRemovePost();
 			return $ret;
 		}
+		elseif($this->blogView->didUserPressRemovePost()){
+			$ret = $this->doComment();
+			return ret;
+		}
 		else{
 			return $this->blogView->HTMLPage($Message);
 		}
@@ -94,6 +98,22 @@ class BlogController{
 		else{
 			$this->blogModel->removePost($postPic);
 			$Message = "Inlägget är borttaget";
+		}
+		
+		return $this->blogView->HTMLPage($Message);
+	}
+	
+	public function doComment(){
+		$Message = "";
+		
+		$comment = $this->blogView->commentThisPost();//Hämta Id på bilden som ska kommenteras
+		
+		if(empty($postPic)){
+			$Message = "Det gick inte att kommentera";
+		}
+		else{
+			$this->blogModel->commentPost($postPic);
+			$Message = "Du har kommenterat";//Kolla här
 		}
 		
 		return $this->blogView->HTMLPage($Message);

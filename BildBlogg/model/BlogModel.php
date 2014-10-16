@@ -119,6 +119,24 @@ class BlogModel {
 		}	
 	}
 	
+	public function picComments($id){
+		try{	
+			$db = $this->Repository->connection();
+			
+			$sql = "SELECT * FROM piccomments WHERE Id = ?";
+			$params = array($id);
+			
+			$query = $db->prepare($sql);
+			$query->execute($params);
+			$result = $query->fetchAll();
+			var_dump($result);
+			return $result;	
+			}
+		catch(\Exception $e){
+			throw new \Exception("Databas error, Hämta blogposter!");
+		}	
+	}
+	
 	public function removePost($postPic){
 		try{	
 			//Tar bort bilden med info från databasen
