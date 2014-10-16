@@ -206,7 +206,7 @@ class BlogView {
 								</form>";
 							}
 							
-							$ret .= "<div class='blogcomments'>" . $picComment['comment'] . "</div>" 
+							$ret .= "<div class='blogcomments'><p>" . $picComment['comment'] . "</p></div>" 
 							. "<div class='commentinfo'>" . $picComment['uploader'] . " " . $picComment['timestamp'] . 
 							$RemoveComment . $EditComment . "</div>";
 						}
