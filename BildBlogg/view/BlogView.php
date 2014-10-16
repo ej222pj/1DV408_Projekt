@@ -8,7 +8,6 @@ class BlogView {
 	private $message = "";
 	private $Uvalue = "";
 	private $RegUvalue = "";
-	private $picHeader = "";
 	private $picComment = "";
 	private $postNr = 0;
 	private $picForRemoval = "";
@@ -35,6 +34,10 @@ class BlogView {
 		}
 	}
 	
+	public function commentThisPost(){//Tar fram Id på bilden som ska kommentera
+		return $_POST['commentThisPost'];
+	}
+	
 	public function didUserPressRemovePost(){		
 		if(isset($_POST['removePost'])){
 			return true;
@@ -45,9 +48,23 @@ class BlogView {
 		return $_POST['picForRemoval'];
 	}
 	
-	public function commentThisPost(){//Tar fram Id på bilden som ska kommentera
-		return $_POST['commentThisPost'];
+	public function didUserPressEditComment(){		
+		if(isset($_POST['editComment'])){
+			return true;
+		}
 	}
+	
+	public function didUserPressRemoveComment(){		
+		if(isset($_POST['removeComment'])){
+			return true;
+		}
+	}
+	
+	public function removeThisComment(){//Tar fram Id på kommentaren som ska bort
+		return $_POST['commentForRemoval'];
+	}
+	
+	
 	
 	public function getComment(){
 		if(($_POST["comment"]) == ""){
@@ -138,7 +155,7 @@ class BlogView {
 						<label for='file'>Filnamn:</label>
 						<input type='file' name='file' id='file'>
 						<label>Rubrik:</label>
-						<input type=text size=5 name='rubrik' id='rubrik' value='$this->picHeader'>
+						<input type=text size=5 name='rubrik' id='rubrik' value=''>		
 						<input type='submit' name='upload' value='Upload'>
 					</form>
 					</div> 
@@ -150,7 +167,7 @@ class BlogView {
 						return $a["timestamp"] - $b["timestamp"]; 
 					});
 					
-					foreach($posts as $blogPost) {
+					foreach(array_reverse($posts) as $blogPost) {
 					 	$removePostButton = "";
 						$this->postNr++;
 						$comments = $this->model->picComments($blogPost['Id']);
@@ -173,12 +190,30 @@ class BlogView {
 								</form>";
 								
 						foreach($comments as $picComment){
+							$RemoveComment = "";
+							$EditComment = "";
+							
+							if($picComment['uploader'] == $_SESSION['user'] || $_SESSION['user'] == "Admin"){
+									$RemoveComment = "<form method='post'>
+									<input type='submit' name='removeComment' value='Ta Bort Kommentar'>
+									<input type=text name='commentForRemoval' class='hidden' value=" .  $picComment['commentId'] . ">
+								</form>";
+							}
+							if($picComment['uploader'] == $_SESSION['user']){
+									$EditComment = "<form method='post'>
+									<input type='submit' name='editComment' value='Redigera Kommentar'>
+									<input type=text name='commentForEdit' class='hidden' value=" .  $picComment['commentId'] . ">
+								</form>";
+							}
+							
 							$ret .= "<div class='blogcomments'>" . $picComment['comment'] . "</div>" 
-							. "<div class='commentinfo'>" . $picComment['uploader'] . " " . $picComment['timestamp'] . "</div>";
+							. "<div class='commentinfo'>" . $picComment['uploader'] . " " . $picComment['timestamp'] . 
+							$RemoveComment . $EditComment . "</div>";
 						}
 						$ret .= $removePostButton . "
 								<p>Uppladdare " . $blogPost['uploader'] . "</p>
-								<p>Datum " . $blogPost['timestamp'] . "</p>																
+								<p>Datum " . $blogPost['timestamp'] . "</p>
+																								
 							</div>
 						";
 					}

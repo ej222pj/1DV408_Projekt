@@ -66,9 +66,9 @@ h2{
 	font-size: 1px;
 }
 .comment {
-min-height: 60px;
-overflow-y: auto;
-word-wrap:break-word
+	min-height: 60px;
+	overflow-y: auto;
+	word-wrap:break-word
 }
 .headerpic{
 	width: 980px;
@@ -79,6 +79,10 @@ word-wrap:break-word
 	border-top: 1px solid black;
 	border-right: 1px solid black;
 	border-left: 1px solid black;
+	max-width: 300px;
+	max-height: 120px;
+	overflow-y: auto;
+	word-wrap:break-word
 }
 .commentinfo{
 	font-size: 12px;
@@ -87,4 +91,5 @@ word-wrap:break-word
 	border-right: 1px solid black;
 	border-left: 1px solid black;
 	margin-bottom: 3px;
+	max-width: 300px;
 }

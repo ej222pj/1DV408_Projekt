@@ -157,5 +157,20 @@ class BlogModel {
 			throw new \Exception("Databas error, Ta bort bilden!");
 		}
 	}
+	public function removeComment($commentId){
+		try{	
+			//Tar bort bilden med info från databasen
+			$db = $this->Repository->connection();
+			
+			$sql = "DELETE FROM piccomments WHERE commentId = ?";
+			$params = array($commentId);
+			
+			$query = $db->prepare($sql);
+			$query->execute($params);
+		}
+		catch(\Exception $e){
+			throw new \Exception("Databas error, Ta bort Kommentar!");
+		}
+	}
 }
 	
