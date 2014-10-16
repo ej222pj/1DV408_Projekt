@@ -19,10 +19,7 @@ class BlogView {
 	
 	public function printImg($image){
 		$dirname = './UploadedPics/';
-		// foreach($images as $image) {
 		$ret = '<a href=""><img class=pictures src="' . $dirname . $image . '" /></a>';
-		// }
-		//$ret = $dirname . $ret;
 		return $ret;
 	}
 	
@@ -41,6 +38,7 @@ class BlogView {
 	public function postForRemoval(){//Tar fram namnet på bilden som ska bort
 		return $_POST['picForRemoval'];
 	}
+	
 	public function getRubrik(){
 		if(($_POST["rubrik"]) == ""){
 			$this->message = "Rubrik saknas!";
@@ -62,7 +60,7 @@ class BlogView {
 			$_SESSION['user'] = $this->user;
 		}
 		
-		$ret = "<img src='./pic/bild.jpg' style='Width:960px;Height:200px' alt=''>";
+		$ret = "<img src='./pic/bild.jpg' style='Width:980px;Height:200px' alt=''>";
 			//Om man inte är inloggad
 			if($this->model->loginstatus() == false) {
 				$ret .= "	
@@ -129,13 +127,15 @@ class BlogView {
 
 					";
 					//Sorterar listan efter datum
-					usort($posts, function($a, $b) { return $a["timestamp"] - $b["timestamp"]; });
+					usort($posts, function($a, $b){
+						return $a["timestamp"] - $b["timestamp"]; 
+					});
 					
 					foreach($posts as $blogPost) {
 					 	$removePostButton = "";
 						$this->postNr++;
 						
-						//Tar fram en ta bort postknapp
+						//Tar fram en "ta bort post" knapp om inloggad användare har tillstånd
 						if($blogPost['uploader'] == $_SESSION['user'] || $_SESSION['user'] == "Admin"){
 							$removePostButton = "<form method='post'>
 							<input type='submit' name='removePost' value='Ta bort inlägg'>
@@ -144,12 +144,13 @@ class BlogView {
 						}
 						$ret .= "
 							<div class='blogpost'> 
-								<h3>" . $blogPost['rubrik'] . "</h3>" 
-								. " " . $this->printImg($blogPost['image']) .
+								<h3>" . $blogPost['rubrik'] . "</h3> " 
+								. $this->printImg($blogPost['image']) . " 
+								<div class='blogcomments'>Här ska de vara kommentarer</div>" .								
 								$removePostButton . "
-								<p>" . $blogPost['uploader'] . "</p>
-								<p>" . $blogPost['timestamp'] . "</p>																
-								</div>
+								<p>Uppladdare: ". $blogPost['uploader'] . "</p>
+								<p>Datum: ". $blogPost['timestamp'] . "</p>																
+							</div>
 							";
 					}
 		}

@@ -13,7 +13,9 @@ class HTMLView {
 				<title>EJ222PJ Projekt</title>
 			</head>
 			<body>
-				$body
+				<div id='container'>
+					$body
+				</div>
 			</body>
 		</html>
 		";

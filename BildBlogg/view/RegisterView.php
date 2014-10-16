@@ -76,13 +76,11 @@ class RegisterView {
 				$this->message = "Användarnamnet har för få tecken. Minst 3 tecken";
 			}
 			elseif(($_POST["regpassword"]) == "" && ($_POST["regusername"]) != "" || strlen(($_POST["regpassword"])) < 6) {
-					//var_dump(strlen(($_POST["regusername"])));
 				$this->RegUvalue = $_POST["regusername"];
 				$this->message = "Lösenordet har för få tecken. Minst 6 tecken";
 			}
 			elseif(($_POST["repregpassword"]) !== ($_POST["regpassword"])) {
 				$this->RegUvalue = $_POST["regusername"];
-				//$this->RegPvalue = $_POST["regpassword"]; Väljer att ta bort lösenordet
 				$this->message = "Lösenorden matchar inte";
 			}
 			return true;
