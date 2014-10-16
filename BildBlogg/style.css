@@ -70,3 +70,21 @@ min-height: 60px;
 overflow-y: auto;
 word-wrap:break-word
 }
+.headerpic{
+	width: 980px;
+	height: 200px
+}
+.blogcomments{
+	font-size: 18px;
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+}
+.commentinfo{
+	font-size: 12px;
+	color: red;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+	margin-bottom: 3px;
+}

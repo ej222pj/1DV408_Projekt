@@ -79,7 +79,7 @@ class BlogView {
 			$_SESSION['user'] = $this->user;
 		}
 		
-		$ret = "<img src='./pic/bild.jpg' style='Width:980px;Height:200px' alt=''>";
+		$ret = "<img src='./pic/bild.jpg' class='headerpic' alt=''>";
 			//Om man inte är inloggad
 			if($this->model->loginstatus() == false) {
 				$ret .= "	
@@ -91,7 +91,7 @@ class BlogView {
 								<p>$this->message</p>
 								<p>$Message</p>
 								<label>Användarnamn:</label>
-								<input type=text size=2 name='userName' id='UserNameID' value='$this->Uvalue'>
+								<input type=text size=2 name='username' id='UserNameID' value='$this->Uvalue'>
 								<label>Lösenord:</label>
 								<input type=password size=2 name='password' id='PasswordID' value=''>
 								<label>Håll mig inloggad  :</label>
@@ -153,7 +153,7 @@ class BlogView {
 					foreach($posts as $blogPost) {
 					 	$removePostButton = "";
 						$this->postNr++;
-						//$comments = $this->model->picComments($blogPost['Id']);
+						$comments = $this->model->picComments($blogPost['Id']);
 						
 						//Tar fram en "ta bort post" knapp om inloggad användare har tillstånd
 						if($blogPost['uploader'] == $_SESSION['user'] || $_SESSION['user'] == "Admin"){
@@ -170,13 +170,17 @@ class BlogView {
 									<textarea type=text cols='20' name='comment' class='comment'></textarea>
 									<input type=submit name='postcomment' value='Kommentera'>
 									<input type=text name='commentThisPost' class='hidden' value=" . $blogPost['Id'] . ">
-								</form>
-								<div class='blogcomments'>Här ska de vara kommentarer</div>" .								
-								$removePostButton . "
-								<p>Uppladdare: " . $blogPost['uploader'] . "</p>
-								<p>Datum: " . $blogPost['timestamp'] . "</p>																
+								</form>";
+								
+						foreach($comments as $picComment){
+							$ret .= "<div class='blogcomments'>" . $picComment['comment'] . "</div>" 
+							. "<div class='commentinfo'>" . $picComment['uploader'] . " " . $picComment['timestamp'] . "</div>";
+						}
+						$ret .= $removePostButton . "
+								<p>Uppladdare " . $blogPost['uploader'] . "</p>
+								<p>Datum " . $blogPost['timestamp'] . "</p>																
 							</div>
-							";
+						";
 					}
 		}
 		return $ret;

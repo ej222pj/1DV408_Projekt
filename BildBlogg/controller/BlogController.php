@@ -55,9 +55,9 @@ class BlogController{
 			$ret = $this->doRemovePost();
 			return $ret;
 		}
-		elseif($this->blogView->didUserPressRemovePost()){
+		elseif($this->blogView->didUserPressComment()){
 			$ret = $this->doComment();
-			return ret;
+			return $ret;
 		}
 		else{
 			return $this->blogView->HTMLPage($Message);
@@ -109,7 +109,7 @@ class BlogController{
 		$postId = $this->blogView->commentThisPost();//Hämta Id på bilden som ska kommenteras
 		$comment = $this->blogView->getComment();
 		
-		if(empty($postId)){
+		if(empty($postId) || empty($comment)){
 			$Message = "Det gick inte att kommentera";
 		}
 		else{

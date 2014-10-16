@@ -65,20 +65,6 @@ class BlogModel {
 		    $counter++;
 		 }
 		return $newname;
-		// $directory = $this->picPath;
-		// $jpg = glob($directory . '*.jpg');
-		// $jpeg = glob($directory . '*.jpeg');
-		// $png = glob($directory . '*.png');
-// 
-		// if($jpg !== false || $jpeg !== false || $png !== false)
-		// {
-		    // $jpgcount = count($jpg);
-			// $jpegcount = count($jpeg);
-			// $pngcount = count($png);
-			// $result = $jpgcount + $jpegcount + $pngcount;
-		// }
-		// $newname = $result . $filename;
-		// var_dump($newname);
 	}
 	
 	public function saveImg($newPicName, $rubrik){
@@ -129,7 +115,7 @@ class BlogModel {
 			$query = $db->prepare($sql);
 			$query->execute($params);
 			$result = $query->fetchAll();
-			var_dump($result);
+			
 			return $result;	
 			}
 		catch(\Exception $e){
