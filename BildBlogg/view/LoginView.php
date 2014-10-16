@@ -2,8 +2,6 @@
 
 namespace view;
 
-//require_once('./view/BlogView.php');
-
 class LoginView {
 	private $model;
 	private $message;
@@ -113,52 +111,32 @@ class LoginView {
 	}
 
 	//Skriver ut HTMLkod efter om användaren är inloggad eller inte.
-	// public function HTMLPage($Message){
-		// if(isset($_SESSION['user']) === false){
-			// $_SESSION['user'] = $this->user;
-		// }
-		// $ret = "";
-// 
-		// setlocale(LC_ALL, 'swedish');
-		// date_default_timezone_set('Europe/Stockholm');
-		// $Todaytime = ucwords(strftime("%A,den %d %B år %Y. Klockan är [%H:%M:%S]."));	
-// 
-		// if($this->model->loginstatus()){
-			// $ret = "<h1>Laborationskod ej222pj</h1>
-					// <h2>" . $_SESSION['user'] . " är inloggad</h2>
-			 		// <p>$this->message</p>
-			 		// <p>$Message</p>
-					// <form method ='post'>
-						// <input type=submit name='Logout' value='Logga ut'>
-					// </form>
-					// <p>$Todaytime</p>";
-					// return $ret;
-		// }
-// 		
-		// if($this->model->loginstatus() == false) {
-				// $ret = "
-					// <h1>Laborationskod ej222pj</h1>
-					// <form method ='post'>
-						// <input type=submit name='Register' value='Registrera ny användare'>
-					// </form>
-					// <h2>Ej inloggad</h2>
-					// <form method='post'>
-						// <fieldset>
-							// <legend>Login - Skriv in användarnamn och lösenord</legend>
-							// <p>$this->message</p>							
-							// <p>$Message</p>
-							// <label>Användarnamn:</label>
-							// <input type=text size=20 name='username' id='UserNameID' value='$this->Uvalue'>
-							// <label>Lösenord:</label>
-							// <input type=password size=20 name='password' id='PasswordID' value='$this->Pvalue'>
-							// <label>Håll mig inloggad  :</label>
-							// <input type=checkbox name='checkbox'>
-							// <p><a href='?Login'>Logga ut</a></p>
-							// <input type=submit name='Login' value='Logga in'>
-						// </fieldset>
-					// </form>
-					// <p>$Todaytime</p>";	
-					// return $ret;
-		// }	
-	// }
+	public function HTMLPage($Message){
+		if(isset($_SESSION['user']) === false){
+			$_SESSION['user'] = $this->user;
+		}
+		$ret = "";
+				$ret .= "	
+				<img src='./pic/bild.jpg' class='headerpic' alt=''>
+				<div class='border'>				
+					<h2>Ej inloggad</h2>
+						<form method='post' id='login'>
+							<fieldset>
+								<legend>Logga in</legend>
+								<p>$this->message</p>
+								<p>$Message</p>
+								<label>Användarnamn:</label>
+								<input type=text size=2 name='username' id='UserNameID' value='$this->Uvalue'>
+								<label>Lösenord:</label>
+								<input type=password size=2 name='password' id='PasswordID' value=''>
+								<label>Håll mig inloggad  :</label>
+								<input type=checkbox name='checkbox'>
+								<input type=submit name='Login' value='Logga in'>
+							</fieldset>
+						</form>
+					</div>				
+				";
+		return $ret;
+			
+	}
 }

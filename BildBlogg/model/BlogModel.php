@@ -135,7 +135,7 @@ class BlogModel {
 			$query -> execute($params);
 		}
 		catch(\Exception $e){
-			throw new \Exception("Databas error, Spara bilden!");
+			throw new \Exception("Databas error, Kommentera på inlägg!");
 		}
 	}
 	

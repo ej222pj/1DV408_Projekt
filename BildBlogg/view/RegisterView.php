@@ -2,6 +2,7 @@
 
 namespace view;
 
+
 class RegisterView {
 	private $model;
 	private $message;
@@ -89,5 +90,29 @@ class RegisterView {
 		else{
 			return false;
 		}
+	}
+	
+	public function HTMLPage($Message){
+		$ret = "
+				<div class='bordertwo'>	
+				<h2>Registrerar användare</h2>
+	
+				<form method='post' id='register'>
+					<fieldset>
+						<legend>Registrera ny användare</legend>
+						<p>$this->message</p>
+						<p>$Message</p>
+						<label>Namn:</label>
+						<input type=text size=5 name='regusername' id='regUserNameID' value='$this->RegUvalue'>
+						<label>Lösenord:</label>
+						<input type=password size=5 name='regpassword' id='regPasswordID' value=''>
+						<label>Repetera Lösenord:</label>
+						<input type=password size=5 name='repregpassword' id='repregPasswordID' value=''>
+						<input type=submit name='RegisterNew' value='Registrera'>
+					</fieldset>
+				</form>
+			</div>";
+				
+		return $ret;
 	}
 }
