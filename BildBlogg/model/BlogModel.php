@@ -88,6 +88,7 @@ class BlogModel {
 	}
 	
 	public function blogPosts(){
+		$_SESSION['LoginSucess'] = false;
 		try{	
 			$db = $this->Repository->connection();
 			

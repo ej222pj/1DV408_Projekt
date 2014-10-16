@@ -5,9 +5,15 @@ namespace controller;
 require_once("./model/RegisterModel.php");
 require_once("./view/RegisterView.php");
 
+require_once("./model/LoginModel.php");
+require_once("./view/LoginView.php");
+
 class RegisterController {
 	private $registerView;
-	private $RegisterModel;
+	private $registerModel;
+	
+	private $loginView;
+	private $loginModel;
 
 	public function __construct() {
 		$this->registerModel = new \model\RegisterModel();

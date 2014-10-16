@@ -69,7 +69,8 @@ class LoginModel {
 			if($username == $result['name'] && $password == $result['password']){
 				$_SESSION["loginstatus"] = $username;
 				$_SESSION["browserstatus"] = $_SERVER['HTTP_USER_AGENT'];
-				$_SESSION['UserWantsToLogin'] = true;
+				//$_SESSION['UserWantsToLogin'] = true;
+				$_SESSION['LoginSucess'] = true;
 				return true;
 			}
 			else {

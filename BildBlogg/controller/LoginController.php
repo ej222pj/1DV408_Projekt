@@ -27,12 +27,11 @@ class LoginController {
 	//Kollar om användaren vill logga in
 		public function doLogin() {
 		$Message = "";
-		$User = "";
 		//Inloggning via cookies
 		if($this->loginModel->loginstatus() == false){
 			if($this->loginView->isRemembered()){
 				if($this->loginModel->CheckloginWithCookie($this->loginView->getCookieUsername(), $this->loginView->getCookiePassword())){
-					$User = $this->loginView->getCookieUsername();	
+					$this->blogView->setUser($this->loginView->getCookieUsername());	
 					$Message = "Inloggning lyckades via cookies!";
 				}else{
 					$this->loginView->removeCookie();
@@ -53,7 +52,7 @@ class LoginController {
 					return $this->loginView->HTMLPage($Message);
 				}
 				else {
-					$User = $username;//Sätter användarnamnet som loggar in
+					$this->blogView->setUser($username);//Sätter användarnamnet som loggar in
 					//Kollar om användaren vill hålla sig inloggd
 					if($this->loginView->Checkbox()){
 						$this->loginView->RememberMe();
