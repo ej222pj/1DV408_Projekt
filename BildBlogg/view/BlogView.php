@@ -30,7 +30,7 @@ class BlogView {
 	}
 	
 	public function didUserPressComment(){
-		if(isset($_POST['comment'])){
+		if(isset($_POST['postcomment'])){
 			return true;
 		}
 	}
@@ -47,6 +47,15 @@ class BlogView {
 	
 	public function commentThisPost(){//Tar fram Id på bilden som ska kommentera
 		return $_POST['commentThisPost'];
+	}
+	
+	public function getComment(){
+		if(($_POST["comment"]) == ""){
+			$this->message = "kommentar saknas!";
+		}
+		else{
+			return $_POST["comment"];
+		}
 	}
 	
 	public function getRubrik(){
@@ -82,7 +91,7 @@ class BlogView {
 								<p>$this->message</p>
 								<p>$Message</p>
 								<label>Användarnamn:</label>
-								<input type=text size=2 name='username' id='UserNameID' value='$this->Uvalue'>
+								<input type=text size=2 name='userName' id='UserNameID' value='$this->Uvalue'>
 								<label>Lösenord:</label>
 								<input type=password size=2 name='password' id='PasswordID' value=''>
 								<label>Håll mig inloggad  :</label>
@@ -159,7 +168,7 @@ class BlogView {
 								. $this->printImg($blogPost['image']) . "
 								<form method='post'>
 									<textarea type=text cols='20' name='comment' class='comment'></textarea>
-									<input type=submit name='comment' value='Kommentera'>
+									<input type=submit name='postcomment' value='Kommentera'>
 									<input type=text name='commentThisPost' class='hidden' value=" . $blogPost['Id'] . ">
 								</form>
 								<div class='blogcomments'>Här ska de vara kommentarer</div>" .								

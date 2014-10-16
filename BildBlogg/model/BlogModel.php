@@ -137,6 +137,22 @@ class BlogModel {
 		}	
 	}
 	
+	public function commentOnPost($id, $comment){
+		try{
+			$uploader = $_SESSION['user'];
+			$db = $this->Repository->connection();
+			
+			$sql = "INSERT INTO piccomments (Id, uploader, comment) VALUES(?, ?, ?)";
+			$params = array($id, $uploader, $comment);
+			
+			$query = $db -> prepare($sql);
+			$query -> execute($params);
+		}
+		catch(\Exception $e){
+			throw new \Exception("Databas error, Spara bilden!");
+		}
+	}
+	
 	public function removePost($postPic){
 		try{	
 			//Tar bort bilden med info från databasen

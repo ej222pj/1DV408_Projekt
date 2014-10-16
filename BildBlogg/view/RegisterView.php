@@ -19,7 +19,7 @@ class RegisterView {
 			 if($_POST["regusername"] !== $this->cleanInput($_POST["regusername"])){
 			 	$this->message = "Användarnamnet innehåller ogiltiga tecken";
 			 	$this->RegUvalue = $this->cleanInput($_POST["regusername"]);
-			 }
+			 }//ändra denna med clean input! kolla om tom sträng
 			 else{
 			 	return $this->cleanInput($_POST["regusername"]);
 			 }
@@ -32,7 +32,9 @@ class RegisterView {
 	//It is used to strip tags and remove or encode unwanted characters.
 	//Inte helt 100% på vad strip_low gör men hittade på Stackoverflow och de funkar.
 	public function cleanInput($username){
+		$username = ucfirst($username);
 		$clean = trim($username);
+		var_dump($clean);
 		$superClean = filter_var($clean, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW);
 		
 		return $superClean;

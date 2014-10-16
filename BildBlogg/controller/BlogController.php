@@ -106,14 +106,15 @@ class BlogController{
 	public function doComment(){
 		$Message = "";
 		
-		$comment = $this->blogView->commentThisPost();//Hämta Id på bilden som ska kommenteras
+		$postId = $this->blogView->commentThisPost();//Hämta Id på bilden som ska kommenteras
+		$comment = $this->blogView->getComment();
 		
-		if(empty($postPic)){
+		if(empty($postId)){
 			$Message = "Det gick inte att kommentera";
 		}
 		else{
-			$this->blogModel->commentPost($postPic);
-			$Message = "Du har kommenterat";//Kolla här
+			$this->blogModel->commentOnPost($postId, $comment);
+			$Message = "Du har kommenterat";
 		}
 		
 		return $this->blogView->HTMLPage($Message);
