@@ -22,14 +22,20 @@ class BlogView {
 		$this->loginView = new \view\LoginView($this->loginModel);
 	}
 	
-	public function printImg($image){
+	public function printImg($image){//Lägger bilderna i en img och a tagg
 		$dirname = './UploadedPics/';
-		$ret = '<a href=""><img class=pictures src="' . $dirname . $image . '" /></a>';
+		$ret = '<a href="' . $dirname . $image . '" target="_blank"><img class=pictures src="' . $dirname . $image . '" /></a>';
 		return $ret;
 	}
 	
 	public function didUserPressUpload(){
 		if(isset($_POST['upload'])){
+			return true;
+		}
+	}
+	
+	public function didUserEditProfile(){
+		if(isset($_POST['EditProfile'])){
 			return true;
 		}
 	}
@@ -153,6 +159,7 @@ class BlogView {
 						<h2>" . $_SESSION['user'] . "</h2>
 						<form method='post'>
 							<input type=submit name='Logout' value='Logga ut'>
+							<input type=submit name='EditProfile' value='Redigera Profil'>
 						</form>
 						<div class='uploadborder'>	
 						<h2>Ladda upp bild</h2>
@@ -197,26 +204,26 @@ class BlogView {
 									<input type=text name='commentThisPost' class='hidden' value=" . $blogPost['Id'] . ">
 								</form>";
 								
-						foreach($comments as $picComment){
+						foreach($comments as $picComment){//Loopar kommentarer
 							$RemoveComment = "";
 							$EditComment = "";
-							
+							//Lägger till removecomment
 							if($picComment['uploader'] == $_SESSION['user'] || $_SESSION['user'] == "Admin"){
 									$RemoveComment = "<form method='post'>
 									<input type='submit' name='removeComment' value='Ta Bort Kommentar'>
 									<input type=text name='commentForRemoval' class='hidden' value=" .  $picComment['commentId'] . ">
 								</form>";
-							}
-							if($picComment['uploader'] == $_SESSION['user']){
-									$EditComment = "<form method='post'>
-									<input type='submit' name='editComment' value='Redigera Kommentar'>
-									<input type=text name='commentForEdit' class='hidden' value=" .  $picComment['commentId'] . ">
-								</form>";
-							}
+							}//Lägger till editcomment
+							// if($picComment['uploader'] == $_SESSION['user']){
+									// $EditComment = "<form method='post'>
+									// <input type='submit' name='editComment' value='Redigera Kommentar'>
+									// <input type=text name='commentForEdit' class='hidden' value=" .  $picComment['commentId'] . ">
+								// </form>";
+							// }
 							
 							$ret .= "<div class='blogcomments'><p>" . $picComment['comment'] . "</p></div>" 
 							. "<div class='commentinfo'>" . $picComment['uploader'] . " " . $picComment['timestamp'] . 
-							$RemoveComment . $EditComment . "</div>";
+							$RemoveComment . /*$EditComment*/ "</div>";
 						}
 						$ret .= $removePostButton . "
 								<p>Uppladdare " . $blogPost['uploader'] . "</p>

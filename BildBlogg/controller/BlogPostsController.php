@@ -16,6 +16,7 @@ class BlogPostsController{
 		
 		$this->blogView = new \view\BlogView($this->blogModel);
 	}
+
 	//Laddar upp bilder.
 	//Strukturen till denna koden är tagen ifrån
 	//http://www.w3schools.com/php/php_file_upload.asp

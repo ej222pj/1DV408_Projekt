@@ -9,16 +9,19 @@ require_once("./model/RegisterModel.php");
 require_once("./view/BlogView.php");
 require_once("./view/LoginView.php");
 require_once("./view/RegisterView.php");
+require_once("./view/EditProfileView.php");
 
 require_once("./controller/LoginController.php");
 require_once("./controller/RegisterController.php");
 require_once("./controller/BlogPostsController.php");
+require_once("./controller/EditController.php");
 
 
 class BlogController{
 	private $blogView;
 	private $loginView;
-	Private $registerView;
+	private $registerView;
+	private $editProfileView;
 	
 	private $blogModel;
 	private $loginModel;
@@ -36,10 +39,12 @@ class BlogController{
 		$this->loginController = new \controller\LoginController();
 		$this->registerController = new \controller\RegisterController();
 		$this->blogPostsController = new \controller\BlogPostsController();
+		$this->editController = new \controller\EditController();
 		
 		$this->blogView = new \view\BlogView($this->blogModel);
 		$this->loginView = new \view\LoginView($this->loginModel);
 		$this->registerView = new \view\RegisterView($this->registerModel);
+		$this->editProfileView = new \view\EditProfileView();
 	}
 	
 	public function BlogControl(){
@@ -60,6 +65,14 @@ class BlogController{
 		elseif($this->loginView->didUserPressLogout()){
 			$ret = $this->loginController->doLogin();
 			$ret .= $this->registerController->doRegister();
+			return $ret;
+		}
+		elseif($this->blogView->didUserEditProfile()){
+			$ret = $this->editProfileView->HTMLPage($Message);
+			return $ret;
+		}
+		elseif($this->editProfileView->didUserPressSave()){
+			$ret = $this->editController->doEditProfile();
 			return $ret;
 		}
 		elseif($this->loginModel->loginstatus() == false){
