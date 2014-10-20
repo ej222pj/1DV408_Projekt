@@ -2,11 +2,12 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="wholeword"/>
-		<item value="dirname" key="selection"/>
+		<item value="timestamp" key="selection"/>
 		<list key="findhistory">
+			<item value="timestamp"/>
 			<item value="dirname"/>
 			<item value="picForRemoval"/>
 			<item value="postNr"/>
@@ -14,7 +15,6 @@
 			<item value="piccomment"/>
 			<item value="Uvalue"/>
 			<item value="user"/>
-			<item value="blog"/>
 		</list>
 	</section>
 </section>
