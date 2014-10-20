@@ -5,8 +5,6 @@ namespace model;
 require_once('./model/LoginModel.php'); 
 require_once('./model/Repository.php');   
 	
-//Hur ska jag spara bilder?
-
 class BlogModel {
 	
 	private $picPath = "./UploadedPics/";

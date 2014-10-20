@@ -4,35 +4,44 @@ namespace view;
 
 class EditProfileView{
 	
-	// public function didUserPressSave(){
-		// if(isset($_POST['save'])){
-			// return true;
-		// }
-	// }
+	private $message;
 	
-		public function didUserPressSave(){
+	public function didUserPressSave(){
 		if(isset($_POST['save'])){
-			if(($_POST["newusername"]) == "" && ($_POST["oldpassword"]) == ""){
-				$this->RegUvalue = $_POST["regusername"];
+				return true;
+		}
+	}
+	
+	public function getNewPassword(){
+		if(isset($_POST['newpassword'])){
+				return $_POST['newpassword'];
+		}
+	}
+	
+	public function checkChangePasswordInput(){
+		if(($_POST["oldpassword"]) == ""){
 				$this->message = "Användarnamnet har för få tecken. Minst 3 tecken!\nLösenordet har för få tecken. Minst 6 tecken";
+				return false;
 			}
-			elseif(strlen(($_POST["newusername"])) < 3){
-				$this->RegUvalue = $_POST["newusername"];
-				$this->message = "Användarnamnet har för få tecken. Minst 3 tecken";
-			}
-			elseif(($_POST["oldpassword"]) == "" && ($_POST["newusername"]) != "" || strlen(($_POST["oldpassword"])) < 6) {
-				$this->RegUvalue = $_POST["newusername"];
+			elseif(($_POST["oldpassword"]) == "" || strlen(($_POST["oldpassword"])) < 6) {
 				$this->message = "Lösenordet har för få tecken. Minst 6 tecken";
+				return false;
+			}
+			elseif(($_POST["newpassword"]) == "" || strlen(($_POST["newpassword"])) < 6) {
+				$this->message = "Nya Lösenordet har för få tecken. Minst 6 tecken";
+				return false;
+			}
+			elseif(($_POST["repnewpassword"]) == "" || strlen(($_POST["repnewpassword"])) < 6) {
+				$this->message = "Repetera Lösenordet har för få tecken. Minst 6 tecken";
+				return false;
 			}
 			elseif(($_POST["repnewpassword"]) !== ($_POST["newpassword"])) {
-				$this->RegUvalue = $_POST["newusername"];
 				$this->message = "Lösenorden matchar inte";
+				return false;
 			}
-			return true;
-		}
-		else{
-			return false;
-		}
+			else{
+				return true;
+			}
 	}
 
 	public function HTMLPage($Message){
@@ -41,13 +50,12 @@ class EditProfileView{
 		$ret .= "	
 		<img src='./pic/bild.jpg' class='headerpic' alt=''>
 		<div class='fullborder'>				
-			<h2>Ej inloggad</h2>
+			<h2>" . $_SESSION['user'] . "</h2>
 				<form method='post' id='RedigeraProfil'>
 					<fieldset>
 						<legend>Redigera Profil</legend>
+						<p>$this->message</p>
 						<p>$Message</p>
-						<label>Användarnamn:</label>
-						<input type=text size=2 name='newusername' id='newUserNameID' value=''>
 						<label>Gammalt Lösenord:</label>
 						<input type=password size=2 name='oldpassword' id='oldPasswordID' value=''>
 						<label>Nytt Lösenord:</label>

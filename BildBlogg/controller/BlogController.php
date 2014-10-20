@@ -72,7 +72,13 @@ class BlogController{
 			return $ret;
 		}
 		elseif($this->editProfileView->didUserPressSave()){
-			$ret = $this->editController->doEditProfile();
+			$ret = "";
+			if($this->editProfileView->checkChangePasswordInput()){
+				$ret = $this->editController->doEditProfile();
+			}
+			else{
+				$ret = $this->editProfileView->HTMLPage($Message);
+			}			
 			return $ret;
 		}
 		elseif($this->loginModel->loginstatus() == false){
