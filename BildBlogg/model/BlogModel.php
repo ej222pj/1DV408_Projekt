@@ -7,7 +7,17 @@ require_once('./model/Repository.php');
 	
 class BlogModel {
 	
+	private $loginModel;
+	
 	private $picPath = "./UploadedPics/";
+	
+	private $file = "file";
+	private $type = "type";
+	private $size = "size";
+	private $name = "name";
+	private $tmp_name = "tmp_name";
+	private $user = "user";
+	private $loginSucess = "LoginSucess";
 	
 	public function __construct() {
 		$this->loginModel = new LoginModel();
@@ -20,13 +30,13 @@ class BlogModel {
 	
 	public function checkPic(){
 		$allowedExts = array("jpeg", "jpg", "png");
-		$temp = explode(".", $_FILES["file"]["name"]);
+		$temp = explode(".", $_FILES[$this->file][$this->name]);
 		$extension = end($temp);
 		
-		if(($_FILES["file"]["type"] == "image/jpeg")
-		|| ($_FILES["file"]["type"] == "image/jpg")
-		|| ($_FILES["file"]["type"] == "image/png")
-		&& ($_FILES["file"]["size"] < 52428800)
+		if(($_FILES[$this->file][$this->type] == "image/jpeg")
+		|| ($_FILES[$this->file][$this->type] == "image/jpg")
+		|| ($_FILES[$this->file][$this->type] == "image/png")
+		&& ($_FILES[$this->file][$this->size] < 52428800)
 		&& in_array($extension, $allowedExts)){
 			return true;
 		}
@@ -36,7 +46,7 @@ class BlogModel {
 	}
 	
 	public function imgExists(){
-		if(file_exists($this->picPath . $_FILES["file"]["name"])){
+		if(file_exists($this->picPath . $_FILES[$this->file][$this->name])){
 			return true;
 		}
 		else{
@@ -68,10 +78,10 @@ class BlogModel {
 	public function saveImg($newPicName, $rubrik){
 		try{		
 			//Save to folder
-			move_uploaded_file($_FILES["file"]["tmp_name"], $this->picPath . $newPicName);
+			move_uploaded_file($_FILES[$this->file][$this->tmp_name], $this->picPath . $newPicName);
 			
 			//Save to database
-			$uploader = $_SESSION['user'];
+			$uploader = $_SESSION[$this->user];
 			$db = $this->Repository->connection();
 			
 			$sql = "INSERT INTO blogimages (uploader, image, rubrik) VALUES(?, ?, ?)";
@@ -86,7 +96,7 @@ class BlogModel {
 	}
 	
 	public function blogPosts(){
-		$_SESSION['LoginSucess'] = false;
+		$_SESSION[$this->loginSucess] = false;
 		try{	
 			$db = $this->Repository->connection();
 			
@@ -124,7 +134,7 @@ class BlogModel {
 	
 	public function commentOnPost($id, $comment){
 		try{
-			$uploader = $_SESSION['user'];
+			$uploader = $_SESSION[$this->user];
 			$db = $this->Repository->connection();
 			
 			$sql = "INSERT INTO piccomments (Id, uploader, comment) VALUES(?, ?, ?)";

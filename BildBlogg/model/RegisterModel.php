@@ -2,8 +2,6 @@
 
 namespace model;
 
-require_once('./model/Repository.php');
-
 class RegisterModel {
 
 	private $Repository;
@@ -14,15 +12,6 @@ class RegisterModel {
 	
 	public function registerUser(){
 		return true;
-	}
-	//Kollar mot datorbasen om en användare finns
-	public function CheckRegisterNew($regusername){
-		if($this->username !== $regusername){
-			return true;
-		}
-		else{
-			return false;
-		}
 	}
 
 	//Lägger till användare till en datorbas

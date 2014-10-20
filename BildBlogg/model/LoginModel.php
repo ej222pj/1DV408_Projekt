@@ -2,12 +2,16 @@
 
 namespace model;
 
-require_once('./model/Repository.php');
-
 class LoginModel {
 
 	private $Repository;
-	private $loginModel;
+	private $browserstatus = "browserstatus";
+	private $loginstatus = "loginstatus";
+	private $HTTP_USER_AGENT = "HTTP_USER_AGENT";
+	private $cookietime = "CookieTime.txt";
+	private $loginsucess = "LoginSucess";
+	private $name = "name";
+	private $password = "password";
 	
 	public function __construct() {
 		$this->Repository = new Repository();
@@ -22,8 +26,8 @@ class LoginModel {
 	//Kollar om sessionen är satt och retunera ture om användaren är inloggad
 	//Kollar även om användaren försöker att logga in med fake session.
 	public function loginstatus(){
-		if(isset($_SESSION["browserstatus"]) && $_SESSION["browserstatus"] == $_SERVER['HTTP_USER_AGENT']){
-			if(isset($_SESSION["loginstatus"])){
+		if(isset($_SESSION[$this->browserstatus]) && $_SESSION[$this->browserstatus] == $_SERVER[$this->HTTP_USER_AGENT]){
+			if(isset($_SESSION[$this->loginstatus])){
 				return true;
 			}
 		}
@@ -32,7 +36,7 @@ class LoginModel {
 
 	//Kollar så att cookie uppgifterna stämmer
 	public function CheckloginWithCookie($username, $password){
-		$CookieTime = file_get_contents('CookieTime.txt');
+		$CookieTime = file_get_contents($this->cookietime);
 
 		$db = $this->Repository->connection();
 			
@@ -43,9 +47,9 @@ class LoginModel {
 			$query -> execute($params);
 			$result = $query -> fetch();
 
-		if ($username == $result['name'] && $password == md5($result['password']) && $CookieTime > time()){
-			$_SESSION["loginstatus"] = $username;
-			$_SESSION["browserstatus"] = $_SERVER['HTTP_USER_AGENT'];
+		if ($username == $result[$this->name] && $password == md5($result[$this->password]) && $CookieTime > time()){
+			$_SESSION[$this->loginstatus] = $username;
+			$_SESSION[$this->browserstatus] = $_SERVER[$this->HTTP_USER_AGENT];
 			return true;
 		}
 		else{
@@ -66,11 +70,10 @@ class LoginModel {
 			$query -> execute($params);
 			$result = $query -> fetch();
 	
-			if($username == $result['name'] && $password == $result['password']){
-				$_SESSION["loginstatus"] = $username;
-				$_SESSION["browserstatus"] = $_SERVER['HTTP_USER_AGENT'];
-				//$_SESSION['UserWantsToLogin'] = true;
-				$_SESSION['LoginSucess'] = true;
+			if($username == $result[$this->name] && $password == $result[$this->password]){
+				$_SESSION[$this->loginstatus] = $username;
+				$_SESSION[$this->browserstatus] = $_SERVER[$this->HTTP_USER_AGENT];
+				$_SESSION[$this->loginsucess] = true;
 				return true;
 			}
 			else {

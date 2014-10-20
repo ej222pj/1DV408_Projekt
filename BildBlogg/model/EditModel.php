@@ -5,6 +5,7 @@ namespace model;
 require_once('./model/Repository.php');   
 
 class EditModel {
+	private $user = "user";
 	
 	private $picPath = "./UploadedPics/";
 	
@@ -15,7 +16,7 @@ class EditModel {
 	public function editProfile($newPassword){
 		try{
 			//Update password
-			$loggedInUser = $_SESSION['user'];
+			$loggedInUser = $_SESSION[$this->user];
 			$db = $this->Repository->connection();
 			
 			$sql = "UPDATE registerforblog SET password=? WHERE name=?";

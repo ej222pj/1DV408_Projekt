@@ -2,7 +2,6 @@
 
 //HTML basklass
 class HTMLView {
-	
 	public function echoHTML($body) {
 		echo "
 		<!DOCTYPE html>
