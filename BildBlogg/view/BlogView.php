@@ -21,6 +21,7 @@ class BlogView {
 	private $commentForRemoval = "commentForRemoval";
 	private $comment = "comment";
 	private $rubrik = "rubrik";
+	private $timestamp = "timestamp";
 	
 	private $user;
 	private $message = "";
@@ -111,11 +112,11 @@ class BlogView {
 		return $ret;
 	}
 	
-	public function HTMLPage($statusMessage){
-		$Message = "$statusMessage";
+	public function HTMLPage($Message){
+		$sessonUser = "user";
 		
-		if(isset($_SESSION['user']) === false){
-			$_SESSION['user'] = $this->user;
+		if(isset($_SESSION[$sessonUser]) === false){
+			$_SESSION[$sessonUser] = $this->user;
 		}
 		
 		//Om man inte är inloggad
@@ -125,14 +126,15 @@ class BlogView {
 		
 		//Om man är inloggad
 		if($this->blogModel->loginstatus()){
+			
 			$posts = $this->blogModel->blogPosts();		
 				
 			$ret = "
 			<img src='./pic/bild.jpg' class='headerpic' alt=''>
-				<h2>" . $_SESSION['user'] . "</h2>
+				<h2>" . $_SESSION[$sessonUser] . "</h2>
 				<form method='post'>
-					<input type=submit name='Logout' value='Logga ut'>
-					<input type=submit name='EditProfile' value='Redigera Profil'>
+					<input type=submit name='' value='Logga ut'>
+					<input type=submit name=$this->editProfile value='Redigera Profil'>
 				</form>
 				<div class='uploadborder'>	
 				<h2>Ladda upp bild</h2>
@@ -143,8 +145,8 @@ class BlogView {
 				<label for='file'>Filnamn:</label>
 				<input type='file' name='file' id='file'>
 				<label>Rubrik:</label>
-				<input type=text size=5 name='rubrik' id='rubrik' value=''>		
-				<input type='submit' name='upload' value='Upload'>
+				<input type=text size=5 name=$this->rubrik id='rubrik' value=''>		
+				<input type='submit' name=$this->upload value='Upload'>
 			</form>
 			</div> 
 
@@ -152,50 +154,56 @@ class BlogView {
 			
 			//Sorterar listan efter datum
 			usort($posts, function($a, $b){
-				return $a["timestamp"] - $b["timestamp"]; 
+				return $a[$this->timestamp] - $b[$this->timestamp]; 
 			});
 					
-			foreach(array_reverse($posts) as $blogPost) {
+			foreach($posts as $blogPost) {
+				$uploader = "uploader";
+				$image = "image";
+				$commentId = "commentId";
+				$Id = "Id";
+				
 			 	$removePostButton = "";
 				$this->postNr++;
 				$comments = $this->blogModel->picComments($blogPost['Id']);
 				
 				//Tar fram en "ta bort post" knapp om inloggad användare har tillstånd
-				if($blogPost['uploader'] == $_SESSION['user'] || $_SESSION['user'] == "Admin"){
+				if($blogPost[$uploader] == $_SESSION[$sessonUser] || $_SESSION[$sessonUser] == "Admin"){
 					$removePostButton = 
 					"<form method='post'>
-					<input type='submit' name='removePost' value='Ta bort inlägg'>
-					<input type=text name='picForRemoval' class='hidden' value=" . $blogPost['image'] . ">
+					<input type='submit' name=$this->removePost value='Ta bort inlägg'>
+					<input type=text name=$this->picForRemoval class='hidden' value=" . $blogPost[$image] . ">
 					</form>";
 				}
 				$ret .= "
 					<div class='blogpost'> 
-						<h3>" . $blogPost['rubrik'] . "</h3> " 
-						. $this->printImg($blogPost['image']) . "
+						<h3>" . $blogPost[$this->rubrik] . "</h3> " 
+						. $this->printImg($blogPost[$image]) . "
 						<form method='post'>
-							<textarea type=text cols='20' name='comment' class='comment'></textarea>
-							<input type=submit name='postcomment' value='Kommentera'>
-							<input type=text name='commentThisPost' class='hidden' value=" . $blogPost['Id'] . ">
+							<textarea type=text cols='20' name=$this->comment class='comment'></textarea>
+							<input type=submit name=$this->postComment value='Kommentera'>
+							<input type=text name=$this->commentThisPost class='hidden' value=" . $blogPost[$Id] . ">
 						</form>";
 						
-				foreach($comments as $picComment){//Loopar kommentarer
+				foreach(array_reverse($comments) as $picComment){//Loopar kommentarer
 					$RemoveComment = "";
 					$EditComment = "";
 					//Lägger till removecomment om uppladdaren är samma som inloggade
-					if($picComment['uploader'] == $_SESSION['user'] || $_SESSION['user'] == "Admin"){
-							$RemoveComment = "<form method='post'>
-							<input type='submit' name='removeComment' value='Ta Bort Kommentar'>
-							<input type=text name='commentForRemoval' class='hidden' value=" .  $picComment['commentId'] . ">
+					if($picComment[$uploader] == $_SESSION[$sessonUser] || $_SESSION[$sessonUser] == "Admin"){
+							$RemoveComment = 
+						"<form method='post'>
+							<input type='submit' name=$this->removeComment value='Ta Bort Kommentar'>
+							<input type=text name=$this->commentForRemoval class='hidden' value=" .  $picComment[$commentId] . ">
 						</form>";
 					}
 					
-					$ret .= "<div class='blogcomments'><p>" . $picComment['comment'] . "</p></div>" 
-					. "<div class='commentinfo'>" . $picComment['uploader'] . " " . $picComment['timestamp'] . 
+					$ret .= "<div class='blogcomments'><p>" . $picComment[$this->comment] . "</p></div>" 
+					. "<div class='commentinfo'>" . $picComment[$uploader] . " " . $picComment[$this->timestamp] . 
 					$RemoveComment . "</div>";
 				}
 				$ret .= $removePostButton . "
-						<p>Uppladdare " . $blogPost['uploader'] . "</p>
-						<p>Datum " . $blogPost['timestamp'] . "</p>												
+						<p>Uppladdare " . $blogPost[$uploader] . "</p>
+						<p>Datum " . $blogPost[$this->timestamp] . "</p>												
 					</div>
 				";
 			}

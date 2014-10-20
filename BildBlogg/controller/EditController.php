@@ -27,17 +27,15 @@ class EditController{
 	}
 
 	public function doEditProfile(){
-		
+		$oldPassword = $this->editProfileView->getOldPassword();
 		$newPassword = $this->editProfileView->getNewPassword();
-		try{
-			if($this->editModel->editProfile($newPassword)){
+		
+			if($this->editModel->editProfile($oldPassword, $newPassword)){
 				$this->Message = "Lösenordet är ändrat";
 			}
-			
-			return $this->blogView->HTMLPage($this->Message);
-		}
-		catch(\Exception $e){
-			throw new \Exception("Försöker lägga till medlem!");
-		}	
+			else{
+				$this->Message = "Gick inte att ändra lösenord";
+			}
+			return $this->blogView->HTMLPage($this->Message);	
 	}
 }

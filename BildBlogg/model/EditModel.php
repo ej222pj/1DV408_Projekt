@@ -13,14 +13,14 @@ class EditModel {
 		$this->Repository = new Repository();
 	}
 	
-	public function editProfile($newPassword){
+	public function editProfile($oldPassword, $newPassword){
 		try{
 			//Update password
 			$loggedInUser = $_SESSION[$this->user];
 			$db = $this->Repository->connection();
 			
-			$sql = "UPDATE registerforblog SET password=? WHERE name=?";
-			$params = array($newPassword, $loggedInUser);
+			$sql = "UPDATE registerforblog SET password=? WHERE name=? AND password=?";
+			$params = array($newPassword, $loggedInUser, $oldPassword);
 			
 			$query = $db->prepare($sql);
 			$query->execute($params);

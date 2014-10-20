@@ -32,7 +32,6 @@ class BlogModel {
 		$allowedExts = array("jpeg", "jpg", "png");
 		$temp = explode(".", $_FILES[$this->file][$this->name]);
 		$extension = end($temp);
-		
 		if(($_FILES[$this->file][$this->type] == "image/jpeg")
 		|| ($_FILES[$this->file][$this->type] == "image/jpg")
 		|| ($_FILES[$this->file][$this->type] == "image/png")
