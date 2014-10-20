@@ -27651,3 +27651,6 @@ java.lang.NullPointerException
 	at com.aptana.editor.common.text.reconciler.CommonReconcilingStrategy.fullReconcile(CommonReconcilingStrategy.java:477)
 	at com.aptana.editor.common.text.reconciler.CommonReconciler.process(CommonReconciler.java:162)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.core.jobs 2 2 2014-10-20 13:35:11.809
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.aptana.usage.internal.DefaultAnalyticsEventHandler$1
