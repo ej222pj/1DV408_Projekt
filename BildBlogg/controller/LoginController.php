@@ -10,10 +10,12 @@ require_once("./view/BlogView.php");
 
 class LoginController {
 	private $loginView;
-	private $loginModel;
 	private $blogView;
+	
 	private $blogModel;
-	private $model;
+	private $loginModel;
+	
+	private $Message = "";
 
 
 	public function __construct() {
@@ -26,16 +28,15 @@ class LoginController {
 
 	//Kollar om användaren vill logga in
 		public function doLogin() {
-		$Message = "";
 		//Inloggning via cookies
 		if($this->loginModel->loginstatus() == false){
 			if($this->loginView->isRemembered()){
 				if($this->loginModel->CheckloginWithCookie($this->loginView->getCookieUsername(), $this->loginView->getCookiePassword())){
 					$this->blogView->setUser($this->loginView->getCookieUsername());	
-					$Message = "Inloggning lyckades via cookies!";
+					$this->Message = "Inloggning lyckades via cookies!";
 				}else{
 					$this->loginView->removeCookie();
-					$Message = "Felaktig information i cookie!";
+					$this->Message = "Felaktig information i cookie!";
 				}
 			}
 		}
@@ -48,18 +49,18 @@ class LoginController {
 		//Kollar så att det är rätt användarnamn och lösenord. Om inte, skicka felmeddelande.
 			if($username != "" && $password != ""){
 				if($this->loginModel->Checklogin($username, $password) == false){
-					$Message = "Felaktigt användarnamn och/eller lösenord";
-					return $this->loginView->HTMLPage($Message);
+					$this->Message = "Felaktigt användarnamn och/eller lösenord";
+					return $this->loginView->HTMLPage($this->Message);
 				}
 				else {
 					$this->blogView->setUser($username);//Sätter användarnamnet som loggar in
 					//Kollar om användaren vill hålla sig inloggd
 					if($this->loginView->Checkbox()){
 						$this->loginView->RememberMe();
-						$Message = "Inloggning lyckades och vi kommer ihåg dig nästa gång!";
+						$this->Message = "Inloggning lyckades och vi kommer ihåg dig nästa gång!";
 						
 					}else{
-						$Message = "Inloggningen lyckades!";
+						$this->Message = "Inloggningen lyckades!";
 					}
 				}
 			}
@@ -67,9 +68,9 @@ class LoginController {
 		//Anropar logout funktionen som förstör sessionen.
 		if($this->loginView->didUserPressLogout()){
 			$this->loginModel->logout();
-			$Message = "Du är nu utloggad!";
-			return $this->loginView->HTMLPage($Message);
+			$this->Message = "Du är nu utloggad!";
+			return $this->loginView->HTMLPage($this->Message);
 		}
-		return $this->blogView->HTMLPage($Message);
+		return $this->blogView->HTMLPage($this->Message);
 	}
 }

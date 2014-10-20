@@ -10,6 +10,8 @@ class BlogPostsController{
 	private $blogView;
 	
 	private $blogModel;
+	
+	private $Message = "";
 
 	public function __construct() {
 		$this->blogModel = new \model\BlogModel();
@@ -22,71 +24,64 @@ class BlogPostsController{
 	//http://www.w3schools.com/php/php_file_upload.asp
 	//Men jag har gjort en hel del ändringar
 	public function doUpload(){
-		$Message = "";
 		$rubrik = $this->blogView->getRubrik();
 
 		if ($this->blogModel->checkPic()){
 			if ($_FILES["file"]["error"] > 0 || empty($rubrik)) {
-				$Message = "Det gick inte att ladda upp bilden!";
+				$this->Message = "Det gick inte att ladda upp bilden!";
 			} 
 			else{
 				$newPicName = $this->blogModel->changeImgName($_FILES["file"]["name"]);
 				$this->blogModel->saveImg($newPicName, $rubrik);
-				$Message = $newPicName . " är uppladdad!";
+				$this->Message = $newPicName . " är uppladdad!";
 			}
 		}
 		else {
-			$Message = "Fel filformat";
+			$this->Message = "Fel filformat";
 		}
-		return $this->blogView->HTMLPage($Message);
+		return $this->blogView->HTMLPage($this->Message);
 	}
 	
 	public function doRemovePost(){
-		$Message = "";
-		
 		$postPic = $this->blogView->postForRemoval();//Hämta namnet på bilden som ska bort
 		
 		if(empty($postPic)){
-			$Message = "Det gick inte att ta bort inlägget";
+			$this->Message = "Det gick inte att ta bort inlägget";
 		}
 		else{
 			$this->blogModel->removePost($postPic);
-			$Message = "Inlägget är borttaget";
+			$this->Message = "Inlägget är borttaget";
 		}
 		
-		return $this->blogView->HTMLPage($Message);
+		return $this->blogView->HTMLPage($this->Message);
 	}
 	
 	public function doComment(){
-		$Message = "";
-		
 		$postId = $this->blogView->commentThisPost();//Hämta Id på bilden som ska kommenteras
-		$comment = $this->blogView->getComment();
+		$comment = $this->blogView->getComment();//Hämta kommentaren
 		
 		if(empty($postId) || empty($comment)){
-			$Message = "Det gick inte att kommentera";
+			$this->Message = "Det gick inte att kommentera";
 		}
 		else{
 			$this->blogModel->commentOnPost($postId, $comment);
-			$Message = "Du har kommenterat";
+			$this->Message = "Du har kommenterat";
 		}
 		
-		return $this->blogView->HTMLPage($Message);
+		return $this->blogView->HTMLPage($this->Message);
 	}
 	
 	public function doRemoveComment(){
-		$Message = "";
-		
 		$commentId = $this->blogView->removeThisComment();//Hämta namnet på bilden som ska bort
 		
 		if(empty($commentId)){
-			$Message = "Det gick inte att ta bort inlägget";
+			$this->Message = "Det gick inte att ta bort inlägget";
 		}
 		else{
 			$this->blogModel->removeComment($commentId);
-			$Message = "Kommentaren är borttagen";
+			$this->Message = "Kommentaren är borttagen";
 		}
 		
-		return $this->blogView->HTMLPage($Message);
+		return $this->blogView->HTMLPage($this->Message);
 	}
 }

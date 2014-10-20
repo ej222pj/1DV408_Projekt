@@ -11,7 +11,13 @@ require_once("./model/EditModel.php");
 
 class EditController{
 	private $editProfileView;
-
+	private $blogView;
+	
+	private $blogModel;
+	private $editModel;
+	
+	private $Message = "";
+	
 	public function __construct() {
 		$this->blogModel = new \model\BlogModel();
 		$this->editModel = new \model\EditModel();
@@ -21,12 +27,14 @@ class EditController{
 	}
 
 	public function doEditProfile(){
-		$Message = "";
+		
 		$newPassword = $this->editProfileView->getNewPassword();
 		try{
-			$this->editModel->editProfile($newPassword);
+			if($this->editModel->editProfile($newPassword)){
+				$this->Message = "Lösenordet är ändrat";
+			}
 			
-			return $this->blogView->HTMLPage($Message);
+			return $this->blogView->HTMLPage($this->Message);
 		}
 		catch(\Exception $e){
 			throw new \Exception("Försöker lägga till medlem!");
