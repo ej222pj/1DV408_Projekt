@@ -1,2 +1,2 @@
-FIND_BAR_DECORATOR_FIND_ENTRIES=\#\r\n\#Thu Oct 16 23\:47\:05 CEST 2014\r\n4\=var\r\n3\=picheader\r\n2\=register\r\n1\=blog\r\n0\=UserWantsToLogin\r\n
+FIND_BAR_DECORATOR_FIND_ENTRIES=\#\r\n\#Mon Oct 20 21\:04\:04 CEST 2014\r\n9\=$regpassword\r\n8\=$loginModel\r\n7\=blog\r\n6\=user\r\n14\=var\r\n5\=Uvalue\r\n13\=picheader\r\n4\=piccomment\r\n12\=register\r\n3\=$postNr\r\n11\=UserWantsToLogin\r\n2\=postNr\r\n10\=$repregpassword\r\n1\=picForRemoval\r\n0\=dirname\r\n
 eclipse.preferences.version=1

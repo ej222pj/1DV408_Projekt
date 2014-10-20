@@ -5,13 +5,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="wholeword"/>
-		<item value="UserWantsToLogin" key="selection"/>
+		<item value="dirname" key="selection"/>
 		<list key="findhistory">
-			<item value="UserWantsToLogin"/>
+			<item value="dirname"/>
+			<item value="picForRemoval"/>
+			<item value="postNr"/>
+			<item value="$postNr"/>
+			<item value="piccomment"/>
+			<item value="Uvalue"/>
+			<item value="user"/>
 			<item value="blog"/>
-			<item value="register"/>
-			<item value="picheader"/>
-			<item value="var"/>
 		</list>
 	</section>
 </section>
