@@ -14,5 +14,6 @@ class BlogPostsController{
 	public function doEditProfile(){
 		$Message = "";
 		
+		
 	}	
 }
