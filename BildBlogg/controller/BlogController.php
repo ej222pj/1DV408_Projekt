@@ -49,7 +49,6 @@ class BlogController{
 	
 	public function BlogControl(){
 		$Message = "";
-		//$_SESSION['UserWantsToLogin'] = false;
 		if($this->loginView->didUserPressLogin()){
 			$ret = $this->loginController->doLogin();
 			if(!isset($_SESSION['LoginSucess'])){
