@@ -22,6 +22,7 @@ class BlogView {
 	private $comment = "comment";
 	private $rubrik = "rubrik";
 	private $timestamp = "timestamp";
+	private $logout = "Logout";
 	
 	private $user;
 	private $message = "";
@@ -37,8 +38,20 @@ class BlogView {
 	}
 	
 	public function printImg($image){//Lägger bilderna i en img och a tagg
-		$ret = '<a href="' . $this->dirname . $image . '" target="_blank"><img class=pictures src="' . $this->dirname . $image . '" /></a>';
+		$ret = '<a href="' . $this->dirname . $image . '" target="_blank"><img class=pictures src="' . $this->dirname . $image . '" alt=""/></a>';
 		return $ret;
+	}
+	
+	
+	//Kollar om man klickat på logout knappen.
+	public function didUserPressLogout(){
+		if(isset($_POST[$this->logout])){
+			$this->loginView->removeCookie();
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	
 	public function didUserPressUpload(){
@@ -114,6 +127,7 @@ class BlogView {
 	
 	public function HTMLPage($Message){
 		$sessonUser = "user";
+		$ret = "";
 		
 		if(isset($_SESSION[$sessonUser]) === false){
 			$_SESSION[$sessonUser] = $this->user;
@@ -121,7 +135,7 @@ class BlogView {
 		
 		//Om man inte är inloggad
 		if($this->blogModel->loginstatus() == false) {
-			$this->LoginView->HTMLPage($Message);
+			$ret = $this->loginView->HTMLPage($Message);
 		}
 		
 		//Om man är inloggad
@@ -133,7 +147,7 @@ class BlogView {
 			<img src='./pic/bild.jpg' class='headerpic' alt=''>
 				<h2>" . $_SESSION[$sessonUser] . "</h2>
 				<form method='post'>
-					<input type=submit name='' value='Logga ut'>
+					<input type=submit name=$this->logout value='Logga ut'>
 					<input type=submit name=$this->editProfile value='Redigera Profil'>
 				</form>
 				<div class='uploadborder'>	

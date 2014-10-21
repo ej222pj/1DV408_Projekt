@@ -62,7 +62,7 @@ class BlogController{
 			$ret .= $this->registerController->doRegister();
 			return $ret;
 		}
-		elseif($this->loginView->didUserPressLogout()){
+		elseif($this->blogView->didUserPressLogout()){
 			$ret = $this->loginController->doLogin();
 			$ret .= $this->registerController->doRegister();
 			return $ret;
@@ -102,8 +102,8 @@ class BlogController{
 			$ret = $this->blogPostsController->doRemoveComment();
 			return $ret;
 		}
-		else{
-			return $this->blogView->HTMLPage($Message);
-		}
+		// else{
+			// return $this->blogView->HTMLPage($Message);
+		// }
 	}
 }

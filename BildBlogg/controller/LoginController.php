@@ -66,7 +66,7 @@ class LoginController {
 			}
 		//Kollar om man klickat på logout knappen.
 		//Anropar logout funktionen som förstör sessionen.
-		if($this->loginView->didUserPressLogout()){
+		if($this->blogView->didUserPressLogout()){
 			$this->loginModel->logout();
 			$this->Message = "Du är nu utloggad!";
 			return $this->loginView->HTMLPage($this->Message);

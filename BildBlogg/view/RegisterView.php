@@ -2,27 +2,31 @@
 
 namespace view;
 
-
 class RegisterView {
-	private $model;
+	private $registerModel;
 	private $message;
 	private $RegUvalue = "";
-	private $RegPvalue = "";
-	private $RepRegPvalue = "";
 	
-	public function __construct(\model\RegisterModel $model) {
-		$this->model = $model;
+	private $regUsername = "regusername";
+	private $regPassword = "regpassword";
+	private $repRegPassword = "repregpassword";
+	private $registerNew = "RegisterNew";
+	
+	
+	
+	public function __construct(\model\RegisterModel $registerModel) {
+		$this->registerModel = $registerModel;
 	}
 	
 	//Hämtar användarnamnet
 	public function getUsername(){
-		if(isset($_POST["regusername"])){
-			 if(empty($_POST["regusername"])){
+		if(isset($_POST[$this->regUsername])){
+			 if(empty($_POST[$this->regUsername])){
 			 	$this->message = "Användarnamnet innehåller ogiltiga tecken";
-			 	$this->RegUvalue = $this->cleanInput($_POST["regusername"]);
+			 	$this->RegUvalue = $this->cleanInput($_POST[$this->regUsername]);
 			 }
 			 else{
-			 	return $this->cleanInput($_POST["regusername"]);
+			 	return $this->cleanInput($_POST[$this->regUsername]);
 			 }
 		}
 	}
@@ -47,43 +51,43 @@ class RegisterView {
 
 	//Hämtar ut lösenordet
 	public function getPassword(){
-		if(isset($_POST["regpassword"])){
-			return $_POST["regpassword"];
+		if(isset($_POST[$this->regPassword])){
+			return $_POST[$this->regPassword];
 		}
 	}
 	
 	public function getRepPassword(){
-		if(isset($_POST["repregpassword"])){
-			return $_POST["repregpassword"];
+		if(isset($_POST[$this->repRegPassword])){
+			return $_POST[$this->repRegPassword];
 		}
 	}
 	
-	public function didUserPressRegister(){
-		if(isset($_POST['Register'])){
-			return true;
-		}
-		else{
-			return false;
-		}
+	public function setUsernameAndStatusMessage($message){
+		$this->RegUvalue = $_POST[$this->regUsername];
+		$this->message = $message;
 	}
 	
 	public function didUserPressRegisterNew(){
-		if(isset($_POST['RegisterNew'])){
-			if(($_POST["regusername"]) == "" && ($_POST["regpassword"]) == ""){
-				$this->RegUvalue = $_POST["regusername"];
-				$this->message = "Användarnamnet har för få tecken. Minst 3 tecken!\nLösenordet har för få tecken. Minst 6 tecken";
+		if(isset($_POST[$this->registerNew])){
+			if(($_POST[$this->regUsername]) == "" && ($_POST[$this->regPassword]) == ""){
+				//$this->RegUvalue = $_POST[$this->regUsername];
+				//$this->message = "Användarnamnet har för få tecken. Minst 3 tecken!\nLösenordet har för få tecken. Minst 6 tecken";
+				$this->setUsernameAndStatusMessage("Användarnamnet har för få tecken. Minst 3 tecken!\nLösenordet har för få tecken. Minst 6 tecken");
 			}
-			elseif(strlen(($_POST["regusername"])) < 3){
-				$this->RegUvalue = $_POST["regusername"];
-				$this->message = "Användarnamnet har för få tecken. Minst 3 tecken";
+			elseif(strlen(($_POST[$this->regUsername])) < 3){
+				//$this->RegUvalue = $_POST[$this->regUsername];
+				//$this->message = "Användarnamnet har för få tecken. Minst 3 tecken";
+				$this->setUsernameAndStatusMessage("Användarnamnet har för få tecken. Minst 3 tecken");
 			}
-			elseif(($_POST["regpassword"]) == "" && ($_POST["regusername"]) != "" || strlen(($_POST["regpassword"])) < 6) {
-				$this->RegUvalue = $_POST["regusername"];
-				$this->message = "Lösenordet har för få tecken. Minst 6 tecken";
+			elseif(($_POST[$this->regPassword]) == "" && ($_POST[$this->regUsername]) != "" || strlen(($_POST[$this->regPassword])) < 6) {
+				//$this->RegUvalue = $_POST[$this->regUsername];
+				//$this->message = "Lösenordet har för få tecken. Minst 6 tecken";
+				$this->setUsernameAndStatusMessage("Lösenordet har för få tecken. Minst 6 tecken");
 			}
-			elseif(($_POST["repregpassword"]) !== ($_POST["regpassword"])) {
-				$this->RegUvalue = $_POST["regusername"];
-				$this->message = "Lösenorden matchar inte";
+			elseif(($_POST[$this->repRegPassword]) !== ($_POST[$this->regPassword])) {
+				//$this->RegUvalue = $_POST[$this->regUsername];
+				//$this->message = "Lösenorden matchar inte";
+				$this->setUsernameAndStatusMessage("Lösenorden matchar inte");
 			}
 			return true;
 		}
@@ -103,12 +107,12 @@ class RegisterView {
 						<p>$this->message</p>
 						<p>$Message</p>
 						<label>Namn:</label>
-						<input type=text size=5 name='regusername' id='regUserNameID' value='$this->RegUvalue'>
+						<input type=text size=5 name=$this->regUsername id='regUserNameID' value='$this->RegUvalue'>
 						<label>Lösenord:</label>
-						<input type=password size=5 name='regpassword' id='regPasswordID' value=''>
+						<input type=password size=5 name=$this->regPassword id='regPasswordID' value=''>
 						<label>Repetera Lösenord:</label>
-						<input type=password size=5 name='repregpassword' id='repregPasswordID' value=''>
-						<input type=submit name='RegisterNew' value='Registrera'>
+						<input type=password size=5 name=$this->repRegPassword id='repregPasswordID' value=''>
+						<input type=submit name=$this->registerNew value='Registrera'>
 					</fieldset>
 				</form>
 			</div>";

@@ -3,30 +3,38 @@
 namespace view;
 
 class LoginView {
-	private $model;
+	private $loginModel;
 	private $message;
 	private $user;
 	private $Uvalue = "";
-	private $Pvalue = "";
+	
+	private $username = "username";
+	private $password = "password";
+	private $login = "Login";
+	private $checkbox = "checkbox";
+	private $cookieUsername = "Username";
+	private $cookiePassword = "Password";
+	private $cookieTimePath = "CookieTime.txt";
+	
 
-	public function __construct(\model\LoginModel $model) {
-		$this->model = $model;
+	public function __construct(\model\LoginModel $loginModel) {
+		$this->loginModel = $loginModel;
 	}
 
 	//Sätter kakor
 	//Spara ner cookietiden i en fil
 	//Kryptera lösenordet
 	public function RememberMe(){
-		setcookie('Username', $_POST["username"], time()+60*60*24*30);
-		setcookie('Password', md5($_POST["password"]), time()+60*60*24*30);
+		setcookie($this->cookieUsername, $_POST[$this->username], time()+60*60*24*30);
+		setcookie($this->cookiePassword, md5($_POST[$this->password]), time()+60*60*24*30);
 
 		$CookieTime = time()+60*60*24*30;
-		file_put_contents('CookieTime.txt', $CookieTime);
+		file_put_contents($this->cookieTimePath, $CookieTime);
 	}
 
 	//Kollar om kakan är satt.
 	public function isRemembered(){
-		if(isset($_COOKIE['Username']) && isset($_COOKIE['Password'])){
+		if(isset($_COOKIE[$this->cookieUsername]) && isset($_COOKIE[$this->cookiePassword])){
 			return true;
 		}
 		else{
@@ -42,32 +50,32 @@ class LoginView {
 
 	//Hämta kaknamnet
 	public function getCookieUsername(){
-		return $_COOKIE['Username'];
+		return $_COOKIE[$this->cookieUsername];
 	}
 
 	//Hämtar kaklösenordet
 	public function getCookiePassword(){
-		return $_COOKIE['Password'];
+		return $_COOKIE[$this->cookiePassword];
 	}
 
 	//Kollar om anvnändaren klickat i håll mig inloggad rutan
 	public function Checkbox(){
-		if(isset($_POST['checkbox'])){
+		if(isset($_POST[$this->checkbox])){
 			return true;
 		}
 	}
 
 	//Hämtar ut användarnamnet
 	public function getUsername(){
-		if(isset($_POST["username"])){
-			return $_POST["username"];
+		if(isset($_POST[$this->username])){
+			return $_POST[$this->username];
 		}
 	}
 
 	//Hämtar ut lösenordet
 	public function getPassword(){
-		if(isset($_POST["password"])){
-			return $_POST["password"];
+		if(isset($_POST[$this->password])){
+			return $_POST[$this->password];
 		}
 	}
 
@@ -75,16 +83,16 @@ class LoginView {
 	//Kollar om användaren skickar med input och skriver ut felmeddelanden.
 	//Sätter användanamnet till value på inmatningssträngen
 	public function didUserPressLogin(){
-		if(isset($_POST['Login'])){
-			if(($_POST["username"]) == ""){
+		if(isset($_POST[$this->login])){
+			if(($_POST[$this->username]) == ""){
 				$this->message = "Användarnamn saknas!";
 			}
-			if(($_POST["password"]) == "" && ($_POST["username"]) != "") {
-				$this->Uvalue = $_POST["username"];
+			if(($_POST[$this->password]) == "" && ($_POST[$this->username]) != "") {
+				$this->Uvalue = $_POST[$this->username];
 				$this->message = "Lösenord saknas!";
 			}
-			if(($_POST["password"]) != "" && ($_POST["username"]) != ""){
-				$this->Uvalue = $_POST["username"];
+			if(($_POST[$this->password]) != "" && ($_POST[$this->username]) != ""){
+				$this->Uvalue = $_POST[$this->username];
 			}
 			return true;
 		}
@@ -95,25 +103,15 @@ class LoginView {
 
 	//Förstör kakorna.
 	public function removeCookie(){
-		setcookie ('Username', "", time() - 3600);
-		setcookie ('Password', "", time() - 3600);
-	}
-
-	//Kollar om man klickat på logout knappen.
-	public function didUserPressLogout(){
-		if(isset($_POST['Logout'])){
-			$this->removeCookie();
-			return true;
-		}
-		else {
-			return false;
-		}
+		setcookie ($this->cookieUsername, "", time() - 3600);
+		setcookie ($this->cookiePassword, "", time() - 3600);
 	}
 
 	//Skriver ut HTMLkod efter om användaren är inloggad eller inte.
 	public function HTMLPage($Message){
-		if(isset($_SESSION['user']) === false){
-			$_SESSION['user'] = $this->user;
+		$user = "user";
+		if(isset($_SESSION[$user]) === false){
+			$_SESSION[$user] = $this->user;
 		}
 		$ret = "";
 				$ret .= "	
@@ -126,12 +124,12 @@ class LoginView {
 								<p>$this->message</p>
 								<p>$Message</p>
 								<label>Användarnamn:</label>
-								<input type=text size=2 name='username' id='UserNameID' value='$this->Uvalue'>
+								<input type=text size=2 name=$this->username id='UserNameID' value='$this->Uvalue'>
 								<label>Lösenord:</label>
-								<input type=password size=2 name='password' id='PasswordID' value=''>
+								<input type=password size=2 name=$this->password id='PasswordID' value=''>
 								<label>Håll mig inloggad  :</label>
-								<input type=checkbox name='checkbox'>
-								<input type=submit name='Login' value='Logga in'>
+								<input type=checkbox name=$this->checkbox>
+								<input type=submit name=$this->login value='Logga in'>
 							</fieldset>
 						</form>
 					</div>				
