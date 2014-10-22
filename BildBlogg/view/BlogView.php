@@ -27,7 +27,6 @@ class BlogView {
 	private $user;
 	private $message = "";
 	private $postNr = 0;
-	//private $picForRemoval = "";
 	
 	public function __construct(\model\BlogModel $blogModel) {
 		$this->blogModel = $blogModel;
