@@ -57,6 +57,6 @@ class RegisterController {
 				return $this->registerView->HTMLPage($this->Message);	
 			}
 		}
-		return $this->registerView->HTMLPage($this->Message);	
+		return $this->registerView->HTMLPage($this->Message);
 	}
 }

@@ -62,8 +62,8 @@ class RegisterView {
 		}
 	}
 	
-	public function setUsernameAndStatusMessage($regUsername, $message){
-		$this->RegUvalue = $regUsername;
+	public function setUsernameAndStatusMessage($message){
+		$this->RegUvalue = $_POST[$this->regUsername];
 		$this->message = $message;
 	}
 	
@@ -71,6 +71,7 @@ class RegisterView {
 		if(isset($_POST[$this->registerNew])){
 			return true;
 		}
+
 	}
 	
 	public function HTMLPage($Message){
