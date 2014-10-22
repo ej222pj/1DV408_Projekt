@@ -84,20 +84,7 @@ class LoginView {
 	//Sätter användanamnet till value på inmatningssträngen
 	public function didUserPressLogin(){
 		if(isset($_POST[$this->login])){
-			if(($_POST[$this->username]) == ""){
-				$this->message = "Användarnamn saknas!";
-			}
-			if(($_POST[$this->password]) == "" && ($_POST[$this->username]) != "") {
-				$this->Uvalue = $_POST[$this->username];
-				$this->message = "Lösenord saknas!";
-			}
-			if(($_POST[$this->password]) != "" && ($_POST[$this->username]) != ""){
-				$this->Uvalue = $_POST[$this->username];
-			}
 			return true;
-		}
-		else {
-			return false;
 		}
 	}
 

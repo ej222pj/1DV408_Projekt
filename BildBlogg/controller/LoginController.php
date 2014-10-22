@@ -47,23 +47,35 @@ class LoginController {
 
 		//Kollar om användaren vill logga in.
 		//Kollar så att det är rätt användarnamn och lösenord. Om inte, skicka felmeddelande.
-			if($username != "" && $password != ""){
-				if($this->loginModel->Checklogin($username, $password) == false){
-					$this->Message = "Felaktigt användarnamn och/eller lösenord";
-					return $this->loginView->HTMLPage($this->Message);
-				}
-				else {
-					$this->blogView->setUser($username);//Sätter användarnamnet som loggar in
-					//Kollar om användaren vill hålla sig inloggd
-					if($this->loginView->Checkbox()){
-						$this->loginView->RememberMe();
-						$this->Message = "Inloggning lyckades och vi kommer ihåg dig nästa gång!";
-						
-					}else{
-						$this->Message = "Inloggningen lyckades!";
-					}
+		if($this->loginView->didUserPressLogin()){
+			if($username == ""){
+				$this->Message = "Användarnamn saknas!";
+				return $this->loginView->HTMLPage($this->Message);
+			}
+			else if($password == "" && $username != ""){
+				$this->loginView->setUsername($username);
+				$this->Message = "Lösenord saknas!";
+				return $this->loginView->HTMLPage($this->Message);
+			}
+		}
+		if($username != "" && $password != ""){
+			if($this->loginModel->Checklogin($username, $password) == false){
+				$this->loginView->setUsername($username);
+				$this->Message = "Felaktigt användarnamn och/eller lösenord";
+				return $this->loginView->HTMLPage($this->Message);
+			}
+			else {
+				$this->blogView->setUser($username);//Sätter användarnamnet som loggar in
+				//Kollar om användaren vill hålla sig inloggd
+				if($this->loginView->Checkbox()){
+					$this->loginView->RememberMe();
+					$this->Message = "Inloggning lyckades och vi kommer ihåg dig nästa gång!";
+					
+				}else{
+					$this->Message = "Inloggningen lyckades!";
 				}
 			}
+		}
 		//Kollar om man klickat på logout knappen.
 		//Anropar logout funktionen som förstör sessionen.
 		if($this->blogView->didUserPressLogout()){

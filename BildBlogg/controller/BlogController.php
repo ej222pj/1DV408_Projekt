@@ -30,6 +30,8 @@ class BlogController{
 	private $loginController;
 	private $registerController;
 	private $blogPostsController;
+	
+	private $loginSucess = "LoginSucess";
 
 	public function __construct() {
 		$this->blogModel = new \model\BlogModel();
@@ -49,9 +51,9 @@ class BlogController{
 	
 	public function BlogControl(){
 		$Message = "";
-		if($this->loginView->didUserPressLogin()){
+		if($this->loginView->didUserPressLogin() || $this->loginModel->loginstatus() == false){
 			$ret = $this->loginController->doLogin();
-			if(!isset($_SESSION['LoginSucess'])){
+			if(!isset($_SESSION[$this->loginSucess])){
 				$ret .= $this->registerController->doRegister();
 			}
 			return $ret;
@@ -61,6 +63,12 @@ class BlogController{
 			$ret .= $this->registerController->doRegister();
 			return $ret;
 		}
+		
+		// elseif($this->loginModel->loginstatus() == false){
+			// $ret = $this->loginView->HTMLPage($Message);
+			// $ret .= $this->registerView->HTMLPage($Message);
+			// return $ret;
+		// }
 		elseif($this->blogView->didUserPressLogout()){
 			$ret = $this->loginController->doLogin();
 			$ret .= $this->registerController->doRegister();
@@ -80,11 +88,6 @@ class BlogController{
 			}			
 			return $ret;
 		}
-		elseif($this->loginModel->loginstatus() == false){
-			$ret = $this->loginView->HTMLPage($Message);
-			$ret .= $this->registerView->HTMLPage($Message);
-			return $ret;
-		}
 		elseif($this->blogView->didUserpressUpload()){
 			$ret = $this->blogPostsController->doUpload();
 			return $ret;
@@ -101,8 +104,8 @@ class BlogController{
 			$ret = $this->blogPostsController->doRemoveComment();
 			return $ret;
 		}
-		// else{
-			// return $this->blogView->HTMLPage($Message);
-		// }
+		 else{
+			 return $this->blogView->HTMLPage($Message);
+		}
 	}
 }

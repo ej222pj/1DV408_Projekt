@@ -62,37 +62,14 @@ class RegisterView {
 		}
 	}
 	
-	public function setUsernameAndStatusMessage($message){
-		$this->RegUvalue = $_POST[$this->regUsername];
+	public function setUsernameAndStatusMessage($regUsername, $message){
+		$this->RegUvalue = $regUsername;
 		$this->message = $message;
 	}
 	
 	public function didUserPressRegisterNew(){
 		if(isset($_POST[$this->registerNew])){
-			if(($_POST[$this->regUsername]) == "" && ($_POST[$this->regPassword]) == ""){
-				//$this->RegUvalue = $_POST[$this->regUsername];
-				//$this->message = "Användarnamnet har för få tecken. Minst 3 tecken!\nLösenordet har för få tecken. Minst 6 tecken";
-				$this->setUsernameAndStatusMessage("Användarnamnet har för få tecken. Minst 3 tecken!\nLösenordet har för få tecken. Minst 6 tecken");
-			}
-			elseif(strlen(($_POST[$this->regUsername])) < 3){
-				//$this->RegUvalue = $_POST[$this->regUsername];
-				//$this->message = "Användarnamnet har för få tecken. Minst 3 tecken";
-				$this->setUsernameAndStatusMessage("Användarnamnet har för få tecken. Minst 3 tecken");
-			}
-			elseif(($_POST[$this->regPassword]) == "" && ($_POST[$this->regUsername]) != "" || strlen(($_POST[$this->regPassword])) < 6) {
-				//$this->RegUvalue = $_POST[$this->regUsername];
-				//$this->message = "Lösenordet har för få tecken. Minst 6 tecken";
-				$this->setUsernameAndStatusMessage("Lösenordet har för få tecken. Minst 6 tecken");
-			}
-			elseif(($_POST[$this->repRegPassword]) !== ($_POST[$this->regPassword])) {
-				//$this->RegUvalue = $_POST[$this->regUsername];
-				//$this->message = "Lösenorden matchar inte";
-				$this->setUsernameAndStatusMessage("Lösenorden matchar inte");
-			}
 			return true;
-		}
-		else{
-			return false;
 		}
 	}
 	
