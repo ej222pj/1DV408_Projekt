@@ -97,3 +97,7 @@ h2{
 	margin-bottom: 3px;
 	max-width: 300px;
 }
+.allPosts{
+	max-height: 1500px;
+	overflow-x: auto;
+}

@@ -162,14 +162,15 @@ class BlogView {
 				<input type='submit' name=$this->upload value='Upload'>
 			</form>
 			</div> 
-
+			<div class='allPosts'>
 			";
 			
 			//Sorterar listan efter datum
 			usort($posts, function($a, $b){
 				return $a[$this->timestamp] - $b[$this->timestamp]; 
 			});
-					
+			//$ret .= "";
+			
 			foreach($posts as $blogPost) {
 				$uploader = "uploader";
 				$image = "image";
