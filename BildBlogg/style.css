@@ -101,3 +101,8 @@ h2{
 	max-height: 1500px;
 	overflow-x: auto;
 }
+.allComments{
+	max-height: 350px;
+	overflow-x: auto;
+	max-width: 300px;
+}

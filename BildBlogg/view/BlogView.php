@@ -169,7 +169,6 @@ class BlogView {
 			usort($posts, function($a, $b){
 				return $a[$this->timestamp] - $b[$this->timestamp]; 
 			});
-			//$ret .= "";
 			
 			foreach($posts as $blogPost) {
 				$uploader = "uploader";
@@ -198,7 +197,7 @@ class BlogView {
 							<input type=submit name=$this->postComment value='Kommentera'>
 							<input type=text name=$this->commentThisPost class='hidden' value=" . $blogPost[$Id] . ">
 						</form>";
-						
+				$ret .= "<div class='allComments'>";
 				foreach(array_reverse($comments) as $picComment){//Loopar kommentarer
 					$RemoveComment = "";
 					$EditComment = "";
@@ -210,15 +209,16 @@ class BlogView {
 							<input type=text name=$this->commentForRemoval class='hidden' value=" .  $picComment[$commentId] . ">
 						</form>";
 					}
-					
+				
 					$ret .= "<div class='blogcomments'><p>" . $picComment[$this->comment] . "</p></div>" 
 					. "<div class='commentinfo'>" . $picComment[$uploader] . " " . $picComment[$this->timestamp] . 
 					$RemoveComment . "</div>";
 				}
-				$ret .= $removePostButton . "
+				$ret .= "</div>" . $removePostButton . "
 						<p>Uppladdare " . $blogPost[$uploader] . "</p>
 						<p>Datum " . $blogPost[$this->timestamp] . "</p>												
 					</div>
+				
 				";
 			}
 		}

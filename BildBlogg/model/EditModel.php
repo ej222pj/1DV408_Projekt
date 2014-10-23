@@ -26,6 +26,7 @@ class EditModel {
 			$query->execute($params);
 			
 			return true;
+
 		}
 		catch(\Exception $e){
 			throw new \Exception("Databas error, Lägg till nytt lösenord!");
