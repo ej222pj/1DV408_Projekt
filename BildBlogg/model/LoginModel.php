@@ -22,6 +22,10 @@ class LoginModel {
 		session_unset();
 		session_destroy();
 	}
+	
+	public function cookiePassword($password){
+		return md5($password);
+	}
 
 	//Kollar om sessionen är satt och retunera ture om användaren är inloggad
 	//Kollar även om användaren försöker att logga in med fake session.

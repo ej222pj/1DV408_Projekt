@@ -25,8 +25,8 @@ class LoginView {
 	//Spara ner cookietiden i en fil
 	//Kryptera lösenordet
 	public function RememberMe(){
-		setcookie($this->cookieUsername, $_POST[$this->username], time()+60*60*24*30);
-		setcookie($this->cookiePassword, md5($_POST[$this->password]), time()+60*60*24*30);
+		setcookie($this->cookieUsername, $this->getUsername(), time()+60*60*24*30);
+		setcookie($this->cookiePassword, $this->loginModel->cookiePassword($this->getPassword()), time()+60*60*24*30);
 
 		$CookieTime = time()+60*60*24*30;
 		file_put_contents($this->cookieTimePath, $CookieTime);
