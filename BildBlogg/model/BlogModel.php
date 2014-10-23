@@ -27,7 +27,7 @@ class BlogModel {
 	public function loginStatus(){
 		return $this->loginModel->loginstatus();
 	}
-	
+	//Kolla om bilden validerar
 	public function checkPic(){
 		$allowedExts = array("jpeg", "jpg", "png");
 		$temp = explode(".", $_FILES[$this->file][$this->name]);
@@ -37,15 +37,6 @@ class BlogModel {
 		|| ($_FILES[$this->file][$this->type] == "image/png")
 		&& ($_FILES[$this->file][$this->size] < 52428800)
 		&& in_array($extension, $allowedExts)){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
-	
-	public function imgExists(){
-		if(file_exists($this->picPath . $_FILES[$this->file][$this->name])){
 			return true;
 		}
 		else{
@@ -73,7 +64,7 @@ class BlogModel {
 		 }
 		return $newname;
 	}
-	
+	//Sparar bilden i både mappen och databasen
 	public function saveImg($newPicName, $rubrik){
 		try{		
 			//Save to folder
@@ -93,7 +84,7 @@ class BlogModel {
 			throw new \Exception("Databas error, Spara bilden!");
 		}
 	}
-	
+	//Sparar blogposterna
 	public function blogPosts(){
 		$_SESSION[$this->loginSucess] = false;
 		try{	
@@ -112,7 +103,7 @@ class BlogModel {
 			throw new \Exception("Databas error, Hämta blogposter!");
 		}	
 	}
-	
+	//Hämtar kommentaren i databasn
 	public function picComments($id){
 		try{	
 			$db = $this->Repository->connection();
@@ -130,7 +121,7 @@ class BlogModel {
 			throw new \Exception("Databas error, Hämta blogposter!");
 		}	
 	}
-	
+	//Sparar kommentaren i databasen
 	public function commentOnPost($id, $comment){
 		try{
 			$uploader = $_SESSION[$this->user];
@@ -146,7 +137,7 @@ class BlogModel {
 			throw new \Exception("Databas error, Kommentera på inlägg!");
 		}
 	}
-	
+	//Tar bort ett inlägg med hjälp av inläggsId
 	public function removePost($postPic){
 		try{	
 			//Tar bort bilden med info från databasen
@@ -165,6 +156,7 @@ class BlogModel {
 			throw new \Exception("Databas error, Ta bort bilden!");
 		}
 	}
+	//Tar bort en kommentaren via kommentarId
 	public function removeComment($commentId){
 		try{	
 			//Tar bort bilden med info från databasen

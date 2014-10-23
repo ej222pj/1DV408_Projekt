@@ -16,19 +16,19 @@ class EditProfileView{
 				return true;
 		}
 	}
-	
+	//Tar fram det gammla lösenordet ifrån formuläret
 	public function getOldPassword(){
 		if(isset($_POST[$this->oldpassword])){
 				return $_POST[$this->oldpassword];
 		}
 	}
-	
+	//Tar fram det nya lösenordet
 	public function getNewPassword(){
 		if(isset($_POST[$this->newpassword])){
 				return $_POST[$this->newpassword];
 		}
 	}
-	
+	//Validerar så att allt stämmer om man ska byta lösenord
 	public function checkChangePasswordInput(){
 		if(($_POST[$this->oldpassword]) == ""){
 				$this->message = "Användarnamnet har för få tecken. Minst 3 tecken!\nLösenordet har för få tecken. Minst 6 tecken";

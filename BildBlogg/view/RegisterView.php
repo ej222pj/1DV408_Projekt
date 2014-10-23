@@ -3,7 +3,6 @@
 namespace view;
 
 class RegisterView {
-	private $registerModel;
 	private $message;
 	private $RegUvalue = "";
 	
@@ -11,12 +10,6 @@ class RegisterView {
 	private $regPassword = "regpassword";
 	private $repRegPassword = "repregpassword";
 	private $registerNew = "RegisterNew";
-	
-	
-	
-	public function __construct(\model\RegisterModel $registerModel) {
-		$this->registerModel = $registerModel;
-	}
 	
 	//Hämtar användarnamnet
 	public function getUsername(){
@@ -43,7 +36,7 @@ class RegisterView {
 		
 		return $superClean;
 	}
-	
+	//sätter användarnamnet om man skriver fel lösenord
 	public function setUsername($username){
 		$ret = $this->RegUvalue = $username;
 		return $ret;
@@ -62,8 +55,8 @@ class RegisterView {
 		}
 	}
 	
-	public function setUsernameAndStatusMessage($message){
-		$this->RegUvalue = $_POST[$this->regUsername];
+	public function setUsernameAndStatusMessage($regusername, $message){
+		$this->RegUvalue = $regusername;
 		$this->message = $message;
 	}
 	

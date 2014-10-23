@@ -12,7 +12,7 @@ class EditModel {
 	public function __construct() {
 		$this->Repository = new Repository();
 	}
-	
+	//Editarar lösenordet
 	public function editProfile($oldPassword, $newPassword){
 		try{
 			//Update password

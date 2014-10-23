@@ -6,8 +6,8 @@ require_once("./model/LoginModel.php");
 
 class BlogView {
 	private $blogModel;
-	private $loginView;
 	Private $loginModel;
+	private $loginView;
 	
 	private $dirname = "./UploadedPics/";
 	private $upload = "upload";
@@ -30,13 +30,12 @@ class BlogView {
 	
 	public function __construct(\model\BlogModel $blogModel) {
 		$this->blogModel = $blogModel;
-		
 		$this->loginModel = new \model\LoginModel;
 		
 		$this->loginView = new \view\LoginView($this->loginModel);
 	}
-	
-	public function printImg($image){//Lägger bilderna i en img och a tagg
+	//Lägger bilderna i en <img> och <a> tagg
+	public function printImg($image){
 		$ret = '<a href="' . $this->dirname . $image . '" target="_blank"><img class=pictures src="' . $this->dirname . $image . '" alt=""/></a>';
 		return $ret;
 	}
@@ -52,55 +51,55 @@ class BlogView {
 			return false;
 		}
 	}
-	
+	//Trycker på upload
 	public function didUserPressUpload(){
 		if(isset($_POST[$this->upload])){
 			return true;
 		}
 	}
-	
+	//Trycker på redigera profil
 	public function didUserEditProfile(){
 		if(isset($_POST[$this->editProfile])){
 			return true;
 		}
 	}
-	
+	//Trycker på kommentera
 	public function didUserPressComment(){
 		if(isset($_POST[$this->postComment])){
 			return true;
 		}
 	}
-	
-	public function commentThisPost(){//Tar fram Id på bilden som ska kommentera
+	//Tar fram Id på bilden som ska kommentera
+	public function commentThisPost(){
 		return $_POST[$this->commentThisPost];
 	}
-	
+	//Trycker på ta bort inlägg
 	public function didUserPressRemovePost(){		
 		if(isset($_POST[$this->removePost])){
 			return true;
 		}
 	}
-	
-	public function postForRemoval(){//Tar fram namnet på bilden som ska bort
+	//Tar fram namnet på bilden som ska bort
+	public function postForRemoval(){
 		return $_POST[$this->picForRemoval];
 	}
-	
+	//Trycker på redigera kommentar
 	public function didUserPressEditComment(){		
 		if(isset($_POST[$this->editComment])){
 			return true;
 		}
 	}
-	
+	//Trycker på ta bort kommentar
 	public function didUserPressRemoveComment(){		
 		if(isset($_POST[$this->removeComment])){
 			return true;
 		}
 	}
-	
-	public function removeThisComment(){//Tar fram Id på kommentaren som ska bort
+	//Tar fram Id på kommentaren som ska bort
+	public function removeThisComment(){
 		return $_POST[$this->commentForRemoval];
 	}
-	
+	//Modellen vill ha kommentaren fårn getComment
 	public function getComment(){
 		if(($_POST[$this->comment]) == ""){
 			$this->message = "kommentar saknas!";
@@ -109,7 +108,7 @@ class BlogView {
 			return $_POST[$this->comment];
 		}
 	}
-	
+	//Modellen vill ha rubriken från getRubrik
 	public function getRubrik(){
 		if(($_POST[$this->rubrik]) == ""){
 			$this->message = "Rubrik saknas!";
@@ -118,7 +117,7 @@ class BlogView {
 			return $_POST[$this->rubrik];
 		}
 	}
-	
+	//Sätter användernamnet ifrån kakan om man loggar in med kakor
 	public function setUser($username){
 		$ret = $this->user = $username;
 		return $ret;
@@ -127,21 +126,21 @@ class BlogView {
 	public function HTMLPage($Message){
 		$sessonUser = "user";
 		$ret = "";
-		
+		//Sätter användarnamnet ifrån sessionen
 		if(isset($_SESSION[$sessonUser]) === false){
 			$_SESSION[$sessonUser] = $this->user;
 		}
 		
-		//Om man inte är inloggad
+		//Om man inte är inloggad skapa en ny login page
 		if($this->blogModel->loginstatus() == false) {
 			$ret = $this->loginView->HTMLPage($Message);
 		}
 		
 		//Om man är inloggad
 		if($this->blogModel->loginstatus()){
-			
+			//Sparar alla blogposter i $posts
 			$posts = $this->blogModel->blogPosts();		
-				
+			//Skapar logga ut, redigera profil, och ladda upp formulären
 			$ret = "
 			<img src='./pic/bild.jpg' class='headerpic' alt=''>
 				<h2>" . $_SESSION[$sessonUser] . "</h2>
@@ -169,7 +168,7 @@ class BlogView {
 			usort($posts, function($a, $b){
 				return $a[$this->timestamp] - $b[$this->timestamp]; 
 			});
-			
+			//Loopar igenom alla blogposter och skriver ut dom
 			foreach($posts as $blogPost) {
 				$uploader = "uploader";
 				$image = "image";
@@ -177,10 +176,11 @@ class BlogView {
 				$Id = "Id";
 				
 			 	$removePostButton = "";
-				$this->postNr++;
+				$this->postNr++;//Ger posterna ett ID för att kunna ta bort eller lägga kommentarer på
+				//Hämtar kommentarerna för rätt inlägg
 				$comments = $this->blogModel->picComments($blogPost['Id']);
 				
-				//Tar fram en "ta bort post" knapp om inloggad användare har tillstånd
+				//Tar fram en "ta bort post" knapp om inloggad användare har tillstånd eller om man är Admin
 				if($blogPost[$uploader] == $_SESSION[$sessonUser] || $_SESSION[$sessonUser] == "Admin"){
 					$removePostButton = 
 					"<form method='post'>
@@ -188,6 +188,7 @@ class BlogView {
 					<input type=text name=$this->picForRemoval class='hidden' value=" . $blogPost[$image] . ">
 					</form>";
 				}
+				//Skriver ut blogposterna
 				$ret .= "
 					<div class='blogpost'> 
 						<h3>" . $blogPost[$this->rubrik] . "</h3> " 
@@ -198,7 +199,8 @@ class BlogView {
 							<input type=text name=$this->commentThisPost class='hidden' value=" . $blogPost[$Id] . ">
 						</form>";
 				$ret .= "<div class='allComments'>";
-				foreach(array_reverse($comments) as $picComment){//Loopar kommentarer
+				//Loopar kommentarer innuti inläggen
+				foreach(array_reverse($comments) as $picComment){
 					$RemoveComment = "";
 					$EditComment = "";
 					//Lägger till removecomment om uppladdaren är samma som inloggade
@@ -209,16 +211,16 @@ class BlogView {
 							<input type=text name=$this->commentForRemoval class='hidden' value=" .  $picComment[$commentId] . ">
 						</form>";
 					}
-				
+					//Lägger till kommentaren, person som kommenterade/timestamp och ta bort kommentar
 					$ret .= "<div class='blogcomments'><p>" . $picComment[$this->comment] . "</p></div>" 
 					. "<div class='commentinfo'>" . $picComment[$uploader] . " " . $picComment[$this->timestamp] . 
 					$RemoveComment . "</div>";
 				}
+				//Lägger till ta bort inlägg knapp, uppladder/timestamp
 				$ret .= "</div>" . $removePostButton . "
 						<p>Uppladdare " . $blogPost[$uploader] . "</p>
 						<p>Datum " . $blogPost[$this->timestamp] . "</p>												
 					</div>
-				
 				";
 			}
 		}
