@@ -3,19 +3,20 @@
 namespace controller;
 
 require_once("./model/RegisterModel.php");
+
 require_once("./view/RegisterView.php");
 
 class RegisterController {
 	private $registerView;
 	
-	private $registerModel;
+	private $loginModel;
 	
 	private $Message = "";
 
 	public function __construct() {
 		$this->registerModel = new \model\RegisterModel();
 		
-		$this->registerView = new \view\RegisterView($this->registerModel);
+		$this->registerView = new \view\RegisterView($this->registerModel);	
 	}
 	
 	public function doRegister(){
@@ -45,8 +46,7 @@ class RegisterController {
 			if(strlen($regusername) > 2 && strlen($regpassword) > 5 && $repregpassword == $regpassword){
 				if($this->registerModel->compareUsername($regusername)){
 					if($this->registerModel->addUser($regusername, $regpassword)){
-						$this->Message = "Registrering av ny användare lyckades";		
-						$this->registerView->setUsername($regusername);		
+						$this->Message = "Registrering av ny användare lyckades";
 						return $this->registerView->HTMLPage($this->Message);
 					}
 				}

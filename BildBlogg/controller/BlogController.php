@@ -59,12 +59,6 @@ class BlogController{
 			}
 			return $ret;
 		}
-		//Om man trycker på registrera
-		elseif($this->registerView->didUserPressRegisterNew()){
-			$ret = $this->loginView->HTMLPage($Message);
-			$ret .= $this->registerController->doRegister();
-			return $ret;
-		}
 		//Om man trycker på logga ut
 		elseif($this->blogView->didUserPressLogout()){
 			$ret = $this->loginController->doLogin();
