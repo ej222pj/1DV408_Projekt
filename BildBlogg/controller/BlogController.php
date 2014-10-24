@@ -51,6 +51,7 @@ class BlogController{
 	
 	public function BlogControl(){
 		$Message = "";
+		//Om man inte är inloggad eller trycker på logga in
 		if($this->loginView->didUserPressLogin() || $this->loginModel->loginstatus() == false){
 			$ret = $this->loginController->doLogin();
 			if(!isset($_SESSION[$this->loginSucess])){
@@ -58,20 +59,24 @@ class BlogController{
 			}
 			return $ret;
 		}
+		//Om man trycker på registrera
 		elseif($this->registerView->didUserPressRegisterNew()){
 			$ret = $this->loginView->HTMLPage($Message);
 			$ret .= $this->registerController->doRegister();
 			return $ret;
 		}
+		//Om man trycker på logga ut
 		elseif($this->blogView->didUserPressLogout()){
 			$ret = $this->loginController->doLogin();
 			$ret .= $this->registerController->doRegister();
 			return $ret;
 		}
+		//Om man trycker på redigera profil
 		elseif($this->blogView->didUserEditProfile()){
 			$ret = $this->editProfileView->HTMLPage($Message);
 			return $ret;
 		}
+		//Om man trycker på spara profiländring
 		elseif($this->editProfileView->didUserPressSave()){
 			$ret = "";
 			if($this->editProfileView->checkChangePasswordInput()){
@@ -82,18 +87,22 @@ class BlogController{
 			}			
 			return $ret;
 		}
+		//Om man trycker på Upload
 		elseif($this->blogView->didUserpressUpload()){
 			$ret = $this->blogPostsController->doUpload();
 			return $ret;
 		}
+		//Om man trycker på Tabort post
 		elseif($this->blogView->didUserPressRemovePost()){
 			$ret = $this->blogPostsController->doRemovePost();
 			return $ret;
 		}
+		//Om man trycker på kommentera
 		elseif($this->blogView->didUserPressComment()){
 			$ret = $this->blogPostsController->doComment();
 			return $ret;
 		}
+		//Om man trycker på ta bort kommentar
 		elseif($this->blogView->didUserPressRemoveComment()){
 			$ret = $this->blogPostsController->doRemoveComment();
 			return $ret;

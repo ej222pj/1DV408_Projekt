@@ -60,7 +60,9 @@ class BlogPostsController{
 		$postId = $this->blogView->commentThisPost();//Hämta Id på bilden som ska kommenteras
 		$comment = $this->blogView->getComment();//Hämta kommentaren
 		
-		if(empty($postId) || empty($comment)){
+		if(empty($postId) || empty($comment) || 
+		strpos($comment,'<') !== false || 
+		strpos($comment,'>') !== false){
 			$this->Message = "Det gick inte att kommentera";
 		}
 		else{
