@@ -16,7 +16,11 @@ class BlogPostsController{
 	public function __construct() {
 		$this->blogModel = new \model\BlogModel();
 		
-		$this->blogView = new \view\BlogView($this->blogModel);
+		$this->blogView = new \view\BlogView();
+	}
+	
+	public function loginStatus(){
+		return $this->blogModel->loginStatus();
 	}
 
 	//Laddar upp bilder.

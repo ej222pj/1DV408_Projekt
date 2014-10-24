@@ -17,8 +17,8 @@ class LoginView {
 	private $cookieTimePath = "CookieTime.txt";
 	
 
-	public function __construct(\model\LoginModel $loginModel) {
-		$this->loginModel = $loginModel;
+	public function __construct() {
+		$this->loginModel = new \model\LoginModel;
 	}
 
 	//Sätter kakor

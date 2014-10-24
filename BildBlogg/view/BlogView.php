@@ -1,8 +1,8 @@
 <?php
 
 namespace view;
+
 require_once("./view/LoginView.php");
-require_once("./model/LoginModel.php");
 
 class BlogView {
 	private $blogModel;
@@ -28,11 +28,10 @@ class BlogView {
 	private $message = "";
 	private $postNr = 0;
 	
-	public function __construct(\model\BlogModel $blogModel) {
-		$this->blogModel = $blogModel;
-		$this->loginModel = new \model\LoginModel;
+	public function __construct() {
+		$this->blogModel = new \model\BlogModel();
 		
-		$this->loginView = new \view\LoginView($this->loginModel);
+		$this->loginView = new \view\LoginView();
 	}
 	//Lägger bilderna i en <img> och <a> tagg
 	public function printImg($image){

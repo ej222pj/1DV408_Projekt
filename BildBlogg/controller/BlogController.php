@@ -2,14 +2,7 @@
 
 namespace controller;
 
-require_once("./model/BlogModel.php");
-require_once("./model/LoginModel.php");
-require_once("./model/RegisterModel.php");
-
 require_once("./view/BlogView.php");
-require_once("./view/LoginView.php");
-require_once("./view/RegisterView.php");
-require_once("./view/EditProfileView.php");
 
 require_once("./controller/LoginController.php");
 require_once("./controller/RegisterController.php");
@@ -19,13 +12,6 @@ require_once("./controller/EditController.php");
 
 class BlogController{
 	private $blogView;
-	private $loginView;
-	private $registerView;
-	private $editProfileView;
-	
-	private $blogModel;
-	private $loginModel;
-	private $registerModel;
 	
 	private $loginController;
 	private $registerController;
@@ -33,26 +19,19 @@ class BlogController{
 	
 	private $loginSucess = "LoginSucess";
 
-	public function __construct() {
-		$this->blogModel = new \model\BlogModel();
-		$this->loginModel = new \model\LoginModel();
-		$this->registerModel = new \model\RegisterModel();
-		
+	public function __construct() {		
 		$this->loginController = new \controller\LoginController();
 		$this->registerController = new \controller\RegisterController();
 		$this->blogPostsController = new \controller\BlogPostsController();
 		$this->editController = new \controller\EditController();
 		
-		$this->blogView = new \view\BlogView($this->blogModel);
-		$this->loginView = new \view\LoginView($this->loginModel);
-		$this->registerView = new \view\RegisterView($this->registerModel);
-		$this->editProfileView = new \view\EditProfileView();
+		$this->blogView = new \view\BlogView();
 	}
 	
 	public function BlogControl(){
 		$Message = "";
 		//Om man inte är inloggad eller trycker på logga in
-		if($this->loginView->didUserPressLogin() || $this->loginModel->loginstatus() == false){
+		if($this->loginController->pressedLogin() || $this->blogPostsController->loginStatus() == false){
 			$ret = $this->loginController->doLogin();
 			if(!isset($_SESSION[$this->loginSucess])){
 				$ret .= $this->registerController->doRegister();
@@ -67,17 +46,17 @@ class BlogController{
 		}
 		//Om man trycker på redigera profil
 		elseif($this->blogView->didUserEditProfile()){
-			$ret = $this->editProfileView->HTMLPage($Message);
+			$ret = $this->editController->htmlPage($Message);
 			return $ret;
 		}
 		//Om man trycker på spara profiländring
-		elseif($this->editProfileView->didUserPressSave()){
+		elseif($this->editController->editProfile()){
 			$ret = "";
-			if($this->editProfileView->checkChangePasswordInput()){
+			if($this->editController->changePasswordInput()){
 				$ret = $this->editController->doEditProfile();
 			}
 			else{
-				$ret = $this->editProfileView->HTMLPage($Message);
+				$ret = $this->editController->htmlPage($Message);
 			}			
 			return $ret;
 		}

@@ -16,7 +16,7 @@ class RegisterController {
 	public function __construct() {
 		$this->registerModel = new \model\RegisterModel();
 		
-		$this->registerView = new \view\RegisterView($this->registerModel);	
+		$this->registerView = new \view\RegisterView();	
 	}
 	
 	public function doRegister(){

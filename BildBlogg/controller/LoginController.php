@@ -3,7 +3,6 @@
 namespace controller;
 
 require_once("./model/LoginModel.php");
-require_once("./model/BlogModel.php");
 
 require_once("./view/LoginView.php");
 require_once("./view/BlogView.php");
@@ -12,7 +11,6 @@ class LoginController {
 	private $loginView;
 	private $blogView;
 	
-	private $blogModel;
 	private $loginModel;
 	
 	private $Message = "";
@@ -20,10 +18,13 @@ class LoginController {
 
 	public function __construct() {
 		$this->loginModel = new \model\LoginModel();
-		$this->loginView = new \view\LoginView($this->loginModel);
 		
-		$this->blogModel = new \model\BlogModel();
-		$this->blogView = new \view\BlogView($this->blogModel);
+		$this->loginView = new \view\LoginView();
+		$this->blogView = new \view\BlogView();
+	}
+	
+	public function pressedLogin(){
+		return $this->loginView->didUserPressLogin();
 	}
 
 	//Kollar om användaren vill logga in
