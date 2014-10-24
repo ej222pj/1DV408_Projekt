@@ -164,7 +164,7 @@ class BlogView {
 			<div class='allPosts'>
 			";
 			
-			//Sorterar listan efter datum
+			//Sorterar blogpost listan efter datum
 			usort($posts, function($a, $b){
 				return $a[$this->timestamp] - $b[$this->timestamp]; 
 			});
@@ -178,7 +178,7 @@ class BlogView {
 			 	$removePostButton = "";
 				$this->postNr++;//Ger posterna ett ID för att kunna ta bort eller lägga kommentarer på
 				//Hämtar kommentarerna för rätt inlägg
-				$comments = $this->blogModel->picComments($blogPost['Id']);
+				$comments = $this->blogModel->picComments($blogPost[$Id]);
 				
 				//Tar fram en "ta bort post" knapp om inloggad användare har tillstånd eller om man är Admin
 				if($blogPost[$uploader] == $_SESSION[$sessonUser] || $_SESSION[$sessonUser] == "Admin"){

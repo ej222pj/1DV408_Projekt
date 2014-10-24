@@ -63,12 +63,6 @@ class BlogController{
 			$ret .= $this->registerController->doRegister();
 			return $ret;
 		}
-		
-		// elseif($this->loginModel->loginstatus() == false){
-			// $ret = $this->loginView->HTMLPage($Message);
-			// $ret .= $this->registerView->HTMLPage($Message);
-			// return $ret;
-		// }
 		elseif($this->blogView->didUserPressLogout()){
 			$ret = $this->loginController->doLogin();
 			$ret .= $this->registerController->doRegister();
