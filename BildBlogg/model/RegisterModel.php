@@ -2,9 +2,9 @@
 
 namespace model;
 
-class RegisterModel {
+require_once('./model/Repository.php'); 
 
-	private $Repository;
+class RegisterModel {
 	
 	public function __construct() {
 		$this->Repository = new Repository();

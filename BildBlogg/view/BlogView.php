@@ -2,11 +2,12 @@
 
 namespace view;
 
+require_once("./model/BlogModel.php");
+
 require_once("./view/LoginView.php");
 
 class BlogView {
 	private $blogModel;
-	Private $loginModel;
 	private $loginView;
 	
 	private $dirname = "./UploadedPics/";

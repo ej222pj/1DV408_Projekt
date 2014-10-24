@@ -2,9 +2,9 @@
 
 namespace model;
 
-class LoginModel {
+require_once('./model/Repository.php'); 
 
-	private $Repository;
+class LoginModel {
 	private $browserstatus = "browserstatus";
 	private $loginstatus = "loginstatus";
 	private $HTTP_USER_AGENT = "HTTP_USER_AGENT";

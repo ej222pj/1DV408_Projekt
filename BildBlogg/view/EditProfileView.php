@@ -3,7 +3,6 @@
 namespace view;
 
 class EditProfileView{
-	
 	private $message;
 	
 	private $save = "save";

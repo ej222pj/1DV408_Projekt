@@ -6,7 +6,6 @@ require_once('./model/LoginModel.php');
 require_once('./model/Repository.php');   
 	
 class BlogModel {
-	
 	private $loginModel;
 	
 	private $picPath = "./UploadedPics/";

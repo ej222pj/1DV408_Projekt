@@ -17,5 +17,4 @@ class Repository {
 		
 		return $this->dbConnection;
 	}
-
 }
