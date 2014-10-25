@@ -14,7 +14,7 @@ class RegisterView {
 	//Hämtar användarnamnet
 	public function getUsername(){
 		if(isset($_POST[$this->regUsername])){
-			 if(empty($_POST[$this->regUsername])){
+			 if(strpos($_POST[$this->regUsername],'<') !== false || strpos($_POST[$this->regUsername],'>') !== false){
 			 	$this->message = "Användarnamnet innehåller ogiltiga tecken";
 			 	$this->RegUvalue = $this->cleanInput($_POST[$this->regUsername]);
 			 }
