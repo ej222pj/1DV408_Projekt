@@ -73,7 +73,7 @@ class BlogModel {
 			$uploader = $_SESSION[$this->user];
 			$db = $this->Repository->connection();
 			
-			$sql = "INSERT INTO blogimages (uploader, image, rubrik) VALUES(?, ?, ?)";
+			$sql = "INSERT INTO BlogImages (uploader, image, rubrik) VALUES(?, ?, ?)";
 			$params = array($uploader, $newPicName, $rubrik);
 			
 			$query = $db -> prepare($sql);
@@ -89,7 +89,7 @@ class BlogModel {
 		try{	
 			$db = $this->Repository->connection();
 			
-			$sql = "SELECT * FROM blogimages";
+			$sql = "SELECT * FROM BlogImages";
 			$params = array();
 			
 			$query = $db->prepare($sql);
@@ -107,7 +107,7 @@ class BlogModel {
 		try{	
 			$db = $this->Repository->connection();
 			
-			$sql = "SELECT * FROM piccomments WHERE Id = ?";
+			$sql = "SELECT * FROM CommentsForPics WHERE Id = ?";
 			$params = array($id);
 			
 			$query = $db->prepare($sql);
@@ -126,7 +126,7 @@ class BlogModel {
 			$uploader = $_SESSION[$this->user];
 			$db = $this->Repository->connection();
 			
-			$sql = "INSERT INTO piccomments (Id, uploader, comment) VALUES(?, ?, ?)";
+			$sql = "INSERT INTO CommentsForPics (Id, uploader, comment) VALUES(?, ?, ?)";
 			$params = array($id, $uploader, $comment);
 			
 			$query = $db -> prepare($sql);
@@ -142,7 +142,7 @@ class BlogModel {
 			//Tar bort bilden med info från databasen
 			$db = $this->Repository->connection();
 			
-			$sql = "DELETE FROM blogimages WHERE image = ?";
+			$sql = "DELETE FROM BlogImages WHERE image = ?";
 			$params = array($postPic);
 			
 			$query = $db->prepare($sql);
@@ -161,7 +161,7 @@ class BlogModel {
 			//Tar bort bilden med info från databasen
 			$db = $this->Repository->connection();
 			
-			$sql = "DELETE FROM piccomments WHERE commentId = ?";
+			$sql = "DELETE FROM CommentsForPics WHERE commentId = ?";
 			$params = array($commentId);
 			
 			$query = $db->prepare($sql);

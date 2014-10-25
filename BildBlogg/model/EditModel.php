@@ -19,7 +19,7 @@ class EditModel {
 			$loggedInUser = $_SESSION[$this->user];
 			$db = $this->Repository->connection();
 			
-			$sql = "UPDATE registerforblog SET password=? WHERE name=? AND password=?";
+			$sql = "UPDATE NewUserForBlog SET password=? WHERE name=? AND password=?";
 			$params = array($newPassword, $loggedInUser, $oldPassword);
 			
 			$query = $db->prepare($sql);
